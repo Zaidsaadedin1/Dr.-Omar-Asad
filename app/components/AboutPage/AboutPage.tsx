@@ -92,7 +92,7 @@ const AboutPage = () => {
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 4 }}>
             <Image
-              src="/images/doctor-profile.jpg"
+              src="/images/Doctor Omar Asad.jpg"
               alt={t("hero.imageAlt")}
               radius="md"
               h={300}

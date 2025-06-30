@@ -7,7 +7,6 @@ import {
   IconDashboard,
   IconLogout,
   IconStethoscope,
-  IconBrain,
   IconPhone,
   IconInfoCircle,
   IconUsers,
@@ -221,7 +220,7 @@ const MenuComponent = () => {
           </Button>
         </Menu.Target>
         <Menu.Dropdown style={{ backgroundColor: COLORS.lightPink }}>
-          <Menu.Item onClick={() => router.push(`/${currentLang}/register`)}>
+          <Menu.Item onClick={() => router.push(`/${currentLang}/signUp`)}>
             <Group
               gap={2}
               style={{
