@@ -31,10 +31,10 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 const ServicesPage = () => {
-  const { t } = useTranslation("services");
+  const { t, i18n } = useTranslation("services");
   const router = useRouter();
-  const currentLang = router.locale || "en";
-  const isRTL = currentLang === "ar";
+  const isRTL = i18n.language === "ar";
+  const currentLang = i18n.language;
 
   const services = [
     {
@@ -235,7 +235,7 @@ const ServicesPage = () => {
 
           {/* Emergency Services */}
           <Box>
-            <Group mb="lg" justify={isRTL ? "flex-end" : "flex-start"}>
+            <Group mb="lg">
               <ThemeIcon size={32} variant="light" color="red">
                 <IconEmergencyBed size={18} />
               </ThemeIcon>

@@ -11,6 +11,7 @@ import {
   Box,
   Flex,
   Badge,
+  Image,
 } from "@mantine/core";
 import {
   IconBrandFacebook,
@@ -243,11 +244,36 @@ const Footer = () => {
       </Flex>
       <Divider my="xl" opacity={0.7} />
       <Text ta="center" size="sm" c="dimmed" mb={10}>
-        {t("footer_copyright") ||
-          (isRTL
-            ? "© 2025 د. عمر أسعد. جميع الحقوق محفوظة."
-            : "© 2025 Dr. Omar Asad. All rights reserved.")}
+        {t("footer_copyright")}
       </Text>
+      <Divider my="xl" opacity={0.7} />
+      <Flex
+        onClick={() => {
+          router.push("https://www.codemastersjo.com/en/");
+        }}
+        justify="center"
+        align="center"
+        gap="xs"
+        mt="sm"
+        pl={50}
+        pr={50}
+      >
+        <Group ml={10} align="flex-start">
+          <Text size="sm" c="dimmed">
+            {t("made_with_love_by")}
+          </Text>
+          <Text size="sm" ml={6} c="black" fw={500}>
+            {t("CodeMastersJo")}
+          </Text>
+        </Group>
+        <Image
+          src="/images/logo_black.png" // Make sure this image exists in /public
+          alt="Code Masters Logo"
+          height={80}
+          width={80}
+          style={{ borderRadius: 4 }}
+        />
+      </Flex>
     </Box>
   );
 };

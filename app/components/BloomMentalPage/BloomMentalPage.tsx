@@ -37,10 +37,9 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 const BloomMentalPage = () => {
-  const { t } = useTranslation("bloomMental");
+  const { t, i18n } = useTranslation("bloomMental");
   const router = useRouter();
-  const currentLang = router.locale || "en";
-  const isRTL = currentLang === "ar";
+  const isRTL = i18n.language === "ar";
 
   const services = [
     {
@@ -130,7 +129,7 @@ const BloomMentalPage = () => {
   };
 
   return (
-    <div dir={isRTL ? "rtl" : "ltr"}>
+    <Box dir={isRTL ? "rtl" : "ltr"}>
       <Container size="xl" py="xl">
         {/* Hero Section */}
         <Box
@@ -207,6 +206,7 @@ const BloomMentalPage = () => {
                     e.currentTarget.style.transform = "translateY(0)";
                     e.currentTarget.style.boxShadow = "";
                   }}
+                  dir={isRTL ? "rtl" : "ltr"}
                 >
                   <Group mb="md" justify={isRTL ? "flex-end" : "flex-start"}>
                     <ThemeIcon
@@ -223,6 +223,7 @@ const BloomMentalPage = () => {
                     size="h4"
                     mb="sm"
                     ta={isRTL ? "right" : "left"}
+                    dir={isRTL ? "rtl" : "ltr"}
                   >
                     {service.title}
                   </Title>
@@ -314,29 +315,29 @@ const BloomMentalPage = () => {
                 {t("contact_subtitle")}
               </Text>
 
-              <Stack gap="md">
-                <Group gap="md" justify={isRTL ? "flex-end" : "flex-start"}>
+              <Stack gap="md" dir={isRTL ? "rtl" : "ltr"}>
+                <Group gap="md">
                   <ThemeIcon size={32} radius="xl" variant="light" color="pink">
                     <IconPhone size={18} />
                   </ThemeIcon>
                   <Text>{contactInfo.phone}</Text>
                 </Group>
 
-                <Group gap="md" justify={isRTL ? "flex-end" : "flex-start"}>
+                <Group gap="md">
                   <ThemeIcon size={32} radius="xl" variant="light" color="pink">
                     <IconMail size={18} />
                   </ThemeIcon>
                   <Text>{contactInfo.email}</Text>
                 </Group>
 
-                <Group gap="md" justify={isRTL ? "flex-end" : "flex-start"}>
+                <Group gap="md">
                   <ThemeIcon size={32} radius="xl" variant="light" color="pink">
                     <IconMapPin size={18} />
                   </ThemeIcon>
                   <Text>{contactInfo.address}</Text>
                 </Group>
 
-                <Group gap="md" justify={isRTL ? "flex-end" : "flex-start"}>
+                <Group gap="md">
                   <ThemeIcon size={32} radius="xl" variant="light" color="pink">
                     <IconClock size={18} />
                   </ThemeIcon>
@@ -344,11 +345,7 @@ const BloomMentalPage = () => {
                 </Group>
               </Stack>
 
-              <Group
-                mt="xl"
-                gap="md"
-                justify={isRTL ? "flex-end" : "flex-start"}
-              >
+              <Group mt="xl" gap="md" dir={isRTL ? "rtl" : "ltr"}>
                 <ActionIcon size="lg" variant="light" color="pink">
                   <IconBrandInstagram size={20} />
                 </ActionIcon>
@@ -361,7 +358,7 @@ const BloomMentalPage = () => {
               </Group>
             </Grid.Col>
 
-            <Grid.Col span={{ base: 12, md: 6 }}>
+            <Grid.Col span={{ base: 12, md: 6 }} dir={isRTL ? "rtl" : "ltr"}>
               <Box
                 style={{
                   background: "white",
@@ -410,7 +407,7 @@ const BloomMentalPage = () => {
           </Button>
         </Box>
       </Container>
-    </div>
+    </Box>
   );
 };
 
