@@ -33,7 +33,7 @@ import { useRouter } from "next/router";
 const ServicesPage = () => {
   const { t } = useTranslation("services");
   const router = useRouter();
-  const currentLang = router.locale || "en"; // locale from Next.js router
+  const currentLang = router.locale || "en";
   const isRTL = currentLang === "ar";
 
   const services = [
@@ -145,267 +145,250 @@ const ServicesPage = () => {
   ];
 
   return (
-    <Container size="lg" py="xl" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Header */}
-      <Paper
-        dir={isRTL ? "rtl" : "ltr"}
-        p="xl"
-        mb="xl"
-        bg="gradient-to-r from-blue-50 to-blue-100"
-      >
-        <Stack align="center" gap="md">
-          <ThemeIcon size={60} variant="light" color="blue">
-            <IconStethoscope size={30} />
-          </ThemeIcon>
-          <Title order={1} ta="center" c="blue.8">
-            {t("page_title")}
-          </Title>
-          <Text size="lg" ta="center" c="dimmed" maw={600}>
-            {t("page_description")}
-          </Text>
-        </Stack>
-      </Paper>
-
-      {/* Main Services */}
-      <Stack gap="xl" dir={isRTL ? "rtl" : "ltr"}>
-        <Box>
-          <Title order={2} mb="lg" c="dark">
-            {t("main_services_title")}
-          </Title>
-          <Grid>
-            {services.map((service) => (
-              <Grid.Col
-                dir={isRTL ? "rtl" : "ltr"}
-                key={service.id}
-                span={{ base: 12, md: 6, lg: 4 }}
-              >
-                <Card p="lg" h="100%" shadow="sm" withBorder>
-                  <Stack gap="md" h="100%">
-                    <Group>
-                      <ThemeIcon
-                        size={40}
-                        variant="light"
-                        color={service.color}
-                      >
-                        <service.icon size={20} />
-                      </ThemeIcon>
-                      <Box flex={1}>
-                        <Title order={4} c={`${service.color}.8`}>
-                          {service.title}
-                        </Title>
-                      </Box>
-                    </Group>
-
-                    <Text size="sm" c="dimmed" flex={1}>
-                      {service.description}
-                    </Text>
-
-                    <Box>
-                      <Text size="sm" fw={600} mb="xs">
-                        {t("service_features")}:
-                      </Text>
-                      <List spacing="xs" size="sm">
-                        {service.features.map((feature, index) => (
-                          <List.Item key={index}>{feature}</List.Item>
-                        ))}
-                      </List>
-                    </Box>
-
-                    <Group justify="space-between" mt="auto">
-                      <Group gap="xs">
-                        <IconClock size={16} />
-                        <Text size="xs" c="dimmed">
-                          {service.duration}
-                        </Text>
-                      </Group>
-                    </Group>
-
-                    <Button
-                      variant="light"
-                      color={service.color}
-                      fullWidth
-                      onClick={() =>
-                        router.push(
-                          `/${currentLang}/appointments?service=${service.id}`
-                        )
-                      }
-                    >
-                      {t("book_appointment")}
-                    </Button>
-                  </Stack>
-                </Card>
-              </Grid.Col>
-            ))}
-          </Grid>
-        </Box>
-
-        <Divider />
-
-        {/* Emergency Services */}
-        <Box dir={isRTL ? "rtl" : "ltr"}>
-          <Group mb="lg">
-            <ThemeIcon size={32} variant="light" color="red">
-              <IconEmergencyBed size={18} />
+    <div dir={isRTL ? "rtl" : "ltr"}>
+      <Container size="lg" py="xl">
+        {/* Header */}
+        <Paper p="xl" mb="xl" bg="gradient-to-r from-blue-50 to-blue-100">
+          <Stack align="center" gap="md">
+            <ThemeIcon size={60} variant="light" color="blue">
+              <IconStethoscope size={30} />
             </ThemeIcon>
-            <Title order={2} c="red.8">
-              {t("emergency_services_title")}
+            <Title order={1} ta="center" c="blue.8">
+              {t("page_title")}
             </Title>
-          </Group>
-
-          <Text size="md" mb="lg" c="dimmed">
-            {t("emergency_services_description")}
-          </Text>
-
-          <Grid dir={isRTL ? "rtl" : "ltr"}>
-            {emergencyServices.map((service, index) => (
-              <Grid.Col
-                dir={isRTL ? "rtl" : "ltr"}
-                key={index}
-                span={{ base: 12, md: 4 }}
-              >
-                <Card p="md" bg="red.0" withBorder>
-                  <Group mb="sm">
-                    <ThemeIcon size={32} variant="light" color="red">
-                      <service.icon size={16} />
-                    </ThemeIcon>
-                    <Text fw={600} c="red.8">
-                      {service.title}
-                    </Text>
-                  </Group>
-                  <Text size="sm" c="dimmed" mb="sm">
-                    {service.description}
-                  </Text>
-                  <Text size="sm" fw={600} c="red.7">
-                    {service.contact}
-                  </Text>
-                </Card>
-              </Grid.Col>
-            ))}
-          </Grid>
-        </Box>
-
-        <Divider />
-
-        {/* Service Process */}
-        <Box>
-          <Title dir={isRTL ? "rtl" : "ltr"} order={2} mb="lg" c="dark">
-            {t("service_process_title")}
-          </Title>
-          <Grid dir={isRTL ? "rtl" : "ltr"}>
-            <Grid.Col dir={isRTL ? "rtl" : "ltr"} span={{ base: 12, md: 3 }}>
-              <Card p="md" ta="center" bg="blue.0">
-                <ThemeIcon
-                  size={40}
-                  variant="light"
-                  color="blue"
-                  mx="auto"
-                  mb="sm"
-                >
-                  <IconCalendar size={20} />
-                </ThemeIcon>
-                <Text fw={600} mb="xs">
-                  {t("step_1_title")}
-                </Text>
-                <Text size="sm" c="dimmed">
-                  {t("step_1_description")}
-                </Text>
-              </Card>
-            </Grid.Col>
-            <Grid.Col dir={isRTL ? "rtl" : "ltr"} span={{ base: 12, md: 3 }}>
-              <Card p="md" ta="center" bg="green.0">
-                <ThemeIcon
-                  size={40}
-                  variant="light"
-                  color="green"
-                  mx="auto"
-                  mb="sm"
-                >
-                  <IconUserCheck size={20} />
-                </ThemeIcon>
-                <Text fw={600} mb="xs">
-                  {t("step_2_title")}
-                </Text>
-                <Text size="sm" c="dimmed">
-                  {t("step_2_description")}
-                </Text>
-              </Card>
-            </Grid.Col>
-            <Grid.Col dir={isRTL ? "rtl" : "ltr"} span={{ base: 12, md: 3 }}>
-              <Card p="md" ta="center" bg="orange.0">
-                <ThemeIcon
-                  size={40}
-                  variant="light"
-                  color="orange"
-                  mx="auto"
-                  mb="sm"
-                >
-                  <IconStethoscope size={20} />
-                </ThemeIcon>
-                <Text fw={600} mb="xs">
-                  {t("step_3_title")}
-                </Text>
-                <Text size="sm" c="dimmed">
-                  {t("step_3_description")}
-                </Text>
-              </Card>
-            </Grid.Col>
-            <Grid.Col dir={isRTL ? "rtl" : "ltr"} span={{ base: 12, md: 3 }}>
-              <Card p="md" ta="center" bg="purple.0">
-                <ThemeIcon
-                  size={40}
-                  variant="light"
-                  color="purple"
-                  mx="auto"
-                  mb="sm"
-                >
-                  <IconHeart size={20} />
-                </ThemeIcon>
-                <Text fw={600} mb="xs">
-                  {t("step_4_title")}
-                </Text>
-                <Text size="sm" c="dimmed">
-                  {t("step_4_description")}
-                </Text>
-              </Card>
-            </Grid.Col>
-          </Grid>
-        </Box>
-
-        {/* Call to Action */}
-        <Paper
-          dir={isRTL ? "rtl" : "ltr"}
-          p="xl"
-          bg="blue.6"
-          c="white"
-          ta="center"
-        >
-          <Stack dir={isRTL ? "rtl" : "ltr"} gap="md" align="center">
-            <Title order={3}>{t("cta_title")}</Title>
-            <Text size="lg" maw={600}>
-              {t("cta_description")}
+            <Text size="lg" ta="center" c="dimmed" maw={600}>
+              {t("page_description")}
             </Text>
-            <Group dir={isRTL ? "rtl" : "ltr"}>
-              <Button
-                size="lg"
-                variant="white"
-                color="blue"
-                onClick={() => router.push(`/${currentLang}/appointments`)}
-              >
-                {t("book_appointment")}
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                color="white"
-                onClick={() => router.push(`/${currentLang}/contact`)}
-              >
-                {t("contact_us")}
-              </Button>
-            </Group>
           </Stack>
         </Paper>
-      </Stack>
-    </Container>
+
+        {/* Main Services */}
+        <Stack gap="xl">
+          <Box>
+            <Title order={2} mb="lg" c="dark" ta={isRTL ? "right" : "left"}>
+              {t("main_services_title")}
+            </Title>
+            <Grid>
+              {services.map((service) => (
+                <Grid.Col key={service.id} span={{ base: 12, md: 6, lg: 4 }}>
+                  <Card p="lg" h="100%" shadow="sm" withBorder>
+                    <Stack gap="md" h="100%">
+                      <Group>
+                        <ThemeIcon
+                          size={40}
+                          variant="light"
+                          color={service.color}
+                        >
+                          <service.icon size={20} />
+                        </ThemeIcon>
+                        <Box flex={1}>
+                          <Title order={4} c={`${service.color}.8`}>
+                            {service.title}
+                          </Title>
+                        </Box>
+                      </Group>
+
+                      <Text size="sm" c="dimmed" flex={1}>
+                        {service.description}
+                      </Text>
+
+                      <Box>
+                        <Text size="sm" fw={600} mb="xs">
+                          {t("service_features")}:
+                        </Text>
+                        <List spacing="xs" size="sm">
+                          {service.features.map((feature, index) => (
+                            <List.Item key={index}>{feature}</List.Item>
+                          ))}
+                        </List>
+                      </Box>
+
+                      <Group justify="space-between" mt="auto">
+                        <Group gap="xs">
+                          <IconClock size={16} />
+                          <Text size="xs" c="dimmed">
+                            {service.duration}
+                          </Text>
+                        </Group>
+                      </Group>
+
+                      <Button
+                        variant="light"
+                        color={service.color}
+                        fullWidth
+                        onClick={() =>
+                          router.push(
+                            `/${currentLang}/appointments?service=${service.id}`
+                          )
+                        }
+                      >
+                        {t("book_appointment")}
+                      </Button>
+                    </Stack>
+                  </Card>
+                </Grid.Col>
+              ))}
+            </Grid>
+          </Box>
+
+          <Divider />
+
+          {/* Emergency Services */}
+          <Box>
+            <Group mb="lg" justify={isRTL ? "flex-end" : "flex-start"}>
+              <ThemeIcon size={32} variant="light" color="red">
+                <IconEmergencyBed size={18} />
+              </ThemeIcon>
+              <Title order={2} c="red.8">
+                {t("emergency_services_title")}
+              </Title>
+            </Group>
+
+            <Text size="md" mb="lg" c="dimmed" ta={isRTL ? "right" : "left"}>
+              {t("emergency_services_description")}
+            </Text>
+
+            <Grid>
+              {emergencyServices.map((service, index) => (
+                <Grid.Col key={index} span={{ base: 12, md: 4 }}>
+                  <Card p="md" bg="red.0" withBorder>
+                    <Group mb="sm">
+                      <ThemeIcon size={32} variant="light" color="red">
+                        <service.icon size={16} />
+                      </ThemeIcon>
+                      <Text fw={600} c="red.8">
+                        {service.title}
+                      </Text>
+                    </Group>
+                    <Text size="sm" c="dimmed" mb="sm">
+                      {service.description}
+                    </Text>
+                    <Text size="sm" fw={600} c="red.7">
+                      {service.contact}
+                    </Text>
+                  </Card>
+                </Grid.Col>
+              ))}
+            </Grid>
+          </Box>
+
+          <Divider />
+
+          {/* Service Process */}
+          <Box>
+            <Title order={2} mb="lg" c="dark" ta={isRTL ? "right" : "left"}>
+              {t("service_process_title")}
+            </Title>
+            <Grid>
+              <Grid.Col span={{ base: 12, md: 3 }}>
+                <Card p="md" ta="center" bg="blue.0">
+                  <ThemeIcon
+                    size={40}
+                    variant="light"
+                    color="blue"
+                    mx="auto"
+                    mb="sm"
+                  >
+                    <IconCalendar size={20} />
+                  </ThemeIcon>
+                  <Text fw={600} mb="xs">
+                    {t("step_1_title")}
+                  </Text>
+                  <Text size="sm" c="dimmed">
+                    {t("step_1_description")}
+                  </Text>
+                </Card>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 3 }}>
+                <Card p="md" ta="center" bg="green.0">
+                  <ThemeIcon
+                    size={40}
+                    variant="light"
+                    color="green"
+                    mx="auto"
+                    mb="sm"
+                  >
+                    <IconUserCheck size={20} />
+                  </ThemeIcon>
+                  <Text fw={600} mb="xs">
+                    {t("step_2_title")}
+                  </Text>
+                  <Text size="sm" c="dimmed">
+                    {t("step_2_description")}
+                  </Text>
+                </Card>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 3 }}>
+                <Card p="md" ta="center" bg="orange.0">
+                  <ThemeIcon
+                    size={40}
+                    variant="light"
+                    color="orange"
+                    mx="auto"
+                    mb="sm"
+                  >
+                    <IconStethoscope size={20} />
+                  </ThemeIcon>
+                  <Text fw={600} mb="xs">
+                    {t("step_3_title")}
+                  </Text>
+                  <Text size="sm" c="dimmed">
+                    {t("step_3_description")}
+                  </Text>
+                </Card>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 3 }}>
+                <Card p="md" ta="center" bg="purple.0">
+                  <ThemeIcon
+                    size={40}
+                    variant="light"
+                    color="purple"
+                    mx="auto"
+                    mb="sm"
+                  >
+                    <IconHeart size={20} />
+                  </ThemeIcon>
+                  <Text fw={600} mb="xs">
+                    {t("step_4_title")}
+                  </Text>
+                  <Text size="sm" c="dimmed">
+                    {t("step_4_description")}
+                  </Text>
+                </Card>
+              </Grid.Col>
+            </Grid>
+          </Box>
+
+          {/* Call to Action */}
+          <Paper p="xl" bg="blue.6" c="white" ta="center">
+            <Stack gap="md" align="center">
+              <Title order={3}>{t("cta_title")}</Title>
+              <Text size="lg" maw={600}>
+                {t("cta_description")}
+              </Text>
+              <Group>
+                <Button
+                  size="lg"
+                  variant="white"
+                  color="blue"
+                  onClick={() => router.push(`/${currentLang}/appointments`)}
+                >
+                  {t("book_appointment")}
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  color="white"
+                  onClick={() => router.push(`/${currentLang}/contact`)}
+                >
+                  {t("contact_us")}
+                </Button>
+              </Group>
+            </Stack>
+          </Paper>
+        </Stack>
+      </Container>
+    </div>
   );
 };
 

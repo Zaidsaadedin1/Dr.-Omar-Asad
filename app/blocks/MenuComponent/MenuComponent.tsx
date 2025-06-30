@@ -87,7 +87,7 @@ const MenuComponent = () => {
           </Menu.Item>
         )}
         <Menu.Item
-          onClick={() => router.push(`/${currentLang}/appointments`)}
+          onClick={() => router.push(`/${currentLang}/consultation`)}
           style={{
             direction: isRTL ? "rtl" : "ltr",
             color: COLORS.darkPinkText,
@@ -133,8 +133,7 @@ const MenuComponent = () => {
     { path: "/about", icon: IconInfoCircle, text: t("about_doctor") },
     { path: "/services", icon: IconStethoscope, text: t("services") },
     { path: "/bloomMental", icon: IconUsers, text: t("bloom_mental") },
-    { path: "/appointments", icon: IconCalendar, text: t("book_appointment") },
-    { path: "/contact", icon: IconPhone, text: t("contact") },
+    { path: "/consultation", icon: IconCalendar, text: t("book_appointment") },
   ].filter((item) => item.path && item.icon);
 
   const renderMainMenu = () =>
