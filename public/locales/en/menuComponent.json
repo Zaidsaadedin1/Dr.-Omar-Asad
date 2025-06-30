@@ -1,0 +1,21 @@
+{
+  "menu": "Menu",
+  "patient_dashboard": "Patient Dashboard",
+  "clinic_management": "Clinic Management",
+  "my_appointments": "My Appointments",
+  "profile": "Profile",
+  "logout": "Logout",
+  "about_doctor": "About Doctor",
+  "services": "Services",
+  "specializations": "Specializations",
+  "bloom_mental": "Bloom Mental",
+  "book_appointment": "Book Appointment",
+  "contact": "Contact",
+  "patient_portal": "Patient Portal",
+  "register_patient": "Register Patient",
+  "patient_login": "Patient Login",
+  "register": "Register",
+  "login": "Login",
+  "dr_omar_asad": "Dr. Omar Asad",
+  "psychiatrist_addiction": "Psychiatrist & Addiction Specialist"
+}

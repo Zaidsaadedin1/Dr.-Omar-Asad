@@ -1,0 +1,78 @@
+{
+  "title": "معلومات الملف الشخصي",
+  "fields": {
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "phoneNumber": "رقم الهاتف",
+    "birthDate": "تاريخ الميلاد",
+    "bio": "نبذة عنك",
+    "occupation": "المهنة",
+    "location": "الموقع",
+    "interests": "الاهتمامات"
+  },
+  "placeholders": {
+    "interests": "اكتب واضغط إدخال..."
+  },
+  "buttons": {
+    "edit": "تعديل",
+    "save": "حفظ"
+  },
+  "validation": {
+    "user_Name_required": "اسم المستخدم مطلوب",
+    "first_name_required": "الاسم الأول مطلوب",
+    "last_name_required": "اسم العائلة مطلوب",
+    "phone_required": "رقم الهاتف مطلوب",
+    "phone_invalid": "تنسيق رقم الهاتف غير صحيح",
+    "birth_date_required": "تاريخ الميلاد مطلوب",
+    "age_minimum": "يجب أن يكون عمرك 13 سنة على الأقل"
+  },
+  "requests": {
+    "title": "طلباتك"
+  },
+  "table": {
+    "no_orders": "لا توجد طلبات.",
+    "id": "المعرف",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "companyName": "اسم الشركة",
+    "projectType": "نوع المشروع",
+    "serviceType": "نوع الخدمة",
+    "budget": "الميزانية",
+    "timeline": "المدة الزمنية",
+    "projectDescription": "وصف المشروع",
+    "additionalRequirements": "متطلبات إضافية",
+    "termsAccepted": "تم قبول الشروط",
+    "userId": "معرف المستخدم"
+  },
+  "genders": {
+    "male": "ذكر",
+    "female": "أنثى",
+    "nonbinary": "غير ثنائي",
+    "transgender": "عابر جنسياً",
+    "genderqueer": "جندر كوير",
+    "agender": "عديم النوع",
+    "other": "أخرى",
+    "prefer_not_to_say": "أفضل عدم الإفصاح",
+    "fields": {
+      "gender": "الجنس"
+    },
+    "placeholders": {
+      "gender": "اختر جنسك"
+    }
+  },
+  "notifications": {
+    "success_title": "تم التعديل  ",
+    "error_title": "لم يتم التعديل",
+    "profile_updated": "تم تحديث الملف الشخصي بنجاح",
+    "error_updating_profile": "حدث خطأ أثناء تحديث الملف الشخصي. يرجى المحاولة مرة أخرى لاحقًا."
+  },
+  "form": {
+    "submit": "إرسال",
+    "reset": "إعادة تعيين",
+    "cancel": "إلغاء"
+  }
+}

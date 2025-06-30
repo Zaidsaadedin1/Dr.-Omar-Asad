@@ -1,0 +1,130 @@
+{
+    "title": "نموذج طلب خدمات تكنولوجيا المعلومات",
+    "subtitle": "أخبرنا عن مشروعك. سيقوم فريقنا بمراسة متطلباتك وسيتصل بك خلال 24 ساعة لمناقشة الخطوات التالية.",
+    "fields": {
+      "firstName": "الاسم الأول",
+      "lastName": "الاسم الأخير",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "companyName": "اسم الشركة (اختياري)",
+      "projectType": "نوع المشروع",
+      "serviceType": "نوع الخدمة",
+      "budget": "تقدير الميزانية",
+      "timeline": "الجدول الزمني",
+      "projectDescription": "وصف المشروع",
+      "additionalRequirements": "متطلبات إضافية (اختيارية)",
+      "attachments": "مرفقات (اختيارية)",
+      "contactInfo":"معلومات الاتصال",
+      "projectRequirements":"متطلبات المشروع"
+    },
+    "placeholders": {
+      "firstName": "الاسم الأول",
+      "lastName": "الاسم الأخير",
+      "email": "بريدك@الإلكتروني.com",
+      "phone": "+1234567890",
+      "companyName": "اسم الشركة أو المؤسسة",
+      "projectType": "اختر نوع المشروع",
+      "serviceType": "اختر نوع الخدمة",
+      "budget": "أدخل الميزانية (دولار أمريكي)",
+      "timeline": "اختر الجدول الزمني المتوقع",
+      "projectDescription": "يرجى وصف متطلبات مشروعك بالتفصيل",
+      "additionalRequirements": "أي ميزات محددة أو تكاملات أو متطلبات فنية",
+      "attachments": "رفع الملفات"
+    },
+    "validation": {
+      "firstName_required": "مطلوب اسم أول",
+      "lastName_required": "مطلوب اسم أخير",
+      "email_required": "البريد الإلكتروني مطلوب",
+      "email_invalid": "عنوان بريد إلكتروني غير صالح",
+      "phone_required": "رقم الهاتف مطلوب",
+      "phone_invalid": "يرجى إدخال رقم هاتف صحيح",
+      "projectType_required": "نوع المشروع مطلوب",
+      "serviceType_required": "نوع الخدمة مطلوب",
+      "budget_required": "تقدير الميزانية مطلوب",
+      "budget_number": "يجب أن تكون الميزانية رقمًا",
+      "budget_min": "يجب أن تكون الميزانية أكبر من 0",
+      "timeline_required": "الجدول الزمني مطلوب",
+      "projectDescription_min": "يجب أن يكون الوصف 10 أحرف على الأقل",
+      "projectDescription_max": "لا يمكن أن يتجاوز الوصف 1000 حرف",
+      "terms_required": "يجب أن توافق على الشروط والأحكام"
+    },
+    "projectTypes": {
+      "mobileApp": "تطبيق جوال",
+      "website": "تطوير موقع ويب",
+      "gameApp": "تطوير ألعاب",
+      "desktopApp": "تطبيق سطح المكتب",
+      "ecommerce": "حل تجارة إلكترونية",
+      "ai": "الذكاء الاصطناعي/التعلم الآلي",
+      "cloudSolution": "حلول الحوسبة السحابية",
+      "other": "خدمات تكنولوجيا معلومات أخرى"
+    },
+    "serviceTypes": {
+      "mobileApp": {
+        "android": "تطبيق أندرويد",
+        "ios": "تطبيق iOS",
+        "crossPlatform": "تطبيق متعدد المنصات",
+        "pwa": "تطبيق ويب تقدمي"
+      },
+      "website": {
+        "corporateWebsite": "موقع مؤسسي",
+        "landingPage": "صفحة هبوط",
+        "webApplication": "تطبيق ويب",
+        "cms": "موقع يعتمد على نظام إدارة المحتوى"
+      },
+      "gameApp": {
+        "mobileGame": "لعبة جوال",
+        "pcGame": "لعبة كمبيوتر",
+        "webGame": "لعبة ويب",
+        "vrGame": "لعبة VR/AR"
+      },
+      "desktopApp": {
+        "windows": "تطبيق ويندوز",
+        "mac": "تطبيق ماك",
+        "linux": "تطبيق لينكس",
+        "crossDesktop": "تطبيق متعدد المنصات"
+      },
+      "ecommerce": {
+        "shopify": "متجر Shopify",
+        "woocommerce": "WooCommerce",
+        "customEcommerce": "تجارة إلكترونية مخصصة",
+        "marketplaceApp": "منصة سوق"
+      },
+      "ai": {
+        "chatbot": "مساعد افتراضي/شات بوت",
+        "dataAnalysis": "حلول تحليل البيانات",
+        "machineLearning": "نموذج تعلم آلي",
+        "computerVision": "رؤية حاسوبية"
+      },
+      "cloudSolution": {
+        "aws": "تنفيذ AWS",
+        "azure": "مايكروسوفت أزور",
+        "gcp": "منصة جوجل السحابية",
+        "privateCloud": "حل سحابي خاص"
+      },
+      "default": {
+        "consulting": "استشارات تكنولوجيا المعلومات",
+        "maintenance": "الصيانة والدعم",
+        "security": "خدمات الأمن السيبراني",
+        "custom": "تطوير مخصص"
+      }
+    },
+    "timelines": {
+      "urgent": "عاجل (أقل من شهر)",
+      "short": "قصير المدى (1-3 أشهر)",
+      "medium": "متوسط المدى (3-6 أشهر)",
+      "long": "طويل المدى (6+ أشهر)",
+      "flexible": "مرن"
+    },
+    "buttons": {
+      "submit": "إرسال الطلب"
+    },
+    "links": {
+      "terms": "شروط الخدمة",
+      "privacy": "سياسة الخصوصية",
+      "agree": "أوافق على",
+      "and": "و"
+    },
+    "descriptions": {
+      "attachments": "ارفع المخططات أو النماذج أو وثائق المشروع"
+    }
+  }

@@ -1,0 +1,21 @@
+{
+  "menu": "القائمة",
+  "patient_dashboard": "لوحة المرضى",
+  "clinic_management": "إدارة العيادة",
+  "my_appointments": "مواعيدي",
+  "profile": "الملف الشخصي",
+  "logout": "تسجيل الخروج",
+  "about_doctor": "عن الطبيب",
+  "services": "الخدمات",
+  "specializations": "التخصصات",
+  "bloom_mental": "بلوم للعلاج النفسي",
+  "book_appointment": "حجز موعد",
+  "contact": "اتصال",
+  "patient_portal": "بوابة المرضى",
+  "register_patient": "تسجيل مريض",
+  "patient_login": "تسجيل دخول المريض",
+  "register": "تسجيل",
+  "login": "دخول",
+  "dr_omar_asad": "الدكتور عمر أسعد",
+  "psychiatrist_addiction": "طبيب نفسي وإدمان"
+}

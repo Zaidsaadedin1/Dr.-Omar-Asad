@@ -1,0 +1,41 @@
+{
+    "sections": {
+      "tagline": "Future-Ready Solutions",
+      "mainTitle": "Explore Technological Frontiers",
+      "mainDescription": "Uncover innovative solutions that drive digital transformation, empowering businesses to thrive in the ever-evolving technological landscape.",
+      "servicesTitle": "Our Technology Services"
+    },
+    "buttons": {
+      "discover": "Discover Our Solutions",
+      "consultation": "Schedule Consultation",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "digital_acceleration": {
+        "title": "Digital Acceleration",
+        "description": "Propel your business forward with cutting-edge technological solutions."
+      },
+      "innovative_strategies": {
+        "title": "Innovative Strategies",
+        "description": "Transform challenges into opportunities through intelligent design."
+      },
+      "secure_ecosystems": {
+        "title": "Secure Ecosystems",
+        "description": "Comprehensive cybersecurity solutions protecting your digital assets."
+      }
+    },
+    "services": {
+      "cloud": {
+        "title": "Cloud Solutions",
+        "description": "Scalable and flexible cloud infrastructure tailored to your needs."
+      },
+      "transformation": {
+        "title": "Digital Transformation",
+        "description": "Seamless integration of advanced technologies into your business model."
+      },
+      "networking": {
+        "title": "Enterprise Networking",
+        "description": "Robust and intelligent network architectures for modern enterprises."
+      }
+    }
+  }

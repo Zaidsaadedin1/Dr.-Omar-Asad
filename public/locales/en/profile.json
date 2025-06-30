@@ -1,0 +1,73 @@
+{
+  "title": "Profile Information",
+  "fields": {
+    "username": "Username",
+    "email": "Email",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "birthDate": "Date of Birth",
+    "bio": "Bio",
+    "occupation": "Occupation",
+    "location": "Location",
+    "interests": "Interests"
+  },
+  "placeholders": {
+    "interests": "Type and press enter..."
+  },
+  "buttons": {
+    "edit": "Edit",
+    "save": "Save"
+  },
+  "validation": {
+    "user_Name_required": "Username is required",
+    "first_name_required": "First name is required",
+    "last_name_required": "Last name is required",
+    "phone_required": "Phone number is required",
+    "phone_invalid": "Invalid phone number format",
+    "birth_date_required": "Date of birth is required",
+    "age_minimum": "You must be at least 13 years old"
+  },
+  "requests": {
+    "title": "Your Requests"
+  },
+  "table": {
+    "no_orders": "No orders found.",
+    "id": "ID",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "companyName": "Company Name",
+    "projectType": "Project Type",
+    "serviceType": "Service Type",
+    "budget": "Budget",
+    "timeline": "Timeline",
+    "projectDescription": "Project Description",
+    "additionalRequirements": "Additional Requirements",
+    "termsAccepted": "Terms Accepted",
+    "userId": "User ID"
+  },
+  "genders": {
+    "male": "Male",
+    "female": "Female",
+    "nonbinary": "Non-binary",
+    "transgender": "Transgender",
+    "genderqueer": "Genderqueer",
+    "agender": "Agender",
+    "other": "Other",
+    "prefer_not_to_say": "Prefer not to say",
+    "fields": {
+      "gender": "Gender"
+    },
+    "placeholders": {
+      "gender": "Select your gender"
+    }
+  },
+  "notifications": {
+    "success_title": "Success",
+    "error_title": "Error",
+    "profile_updated": "Profile updated successfully",
+    "error_updating_profile": "An error occurred while updating the profile"
+  }
+}

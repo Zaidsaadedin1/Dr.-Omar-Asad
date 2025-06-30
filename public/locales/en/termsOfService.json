@@ -1,0 +1,75 @@
+{
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: March 1, 2025",
+    "sections": {
+      "introduction": {
+        "title": "1. Introduction",
+        "content": [
+          "Welcome to our platform. These Terms of Service (\"Terms\") govern your access to and use of our website, products, and services. By accessing or using our services, you agree to be bound by these Terms and our Privacy Policy.",
+          "Please read these Terms carefully before using our services. If you do not agree to these Terms, you must not access or use our services."
+        ]
+      },
+      "definitions": {
+        "title": "2. Definitions",
+        "content": {
+          "service": "\"Service\" refers to the website, application, and services provided by our company.",
+          "user": "\"User\" refers to individuals who access or use our Service.",
+          "content": "\"Content\" refers to text, graphics, images, music, software, audio, video, information or other materials."
+        }
+      },
+      "userAccounts": {
+        "title": "3. User Accounts",
+        "content": [
+          "3.1. To access certain features of our Service, you may be required to create an account. You agree to provide accurate, current, and complete information during the registration process.",
+          "3.2. You are responsible for safeguarding your password and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.",
+          "3.3. We reserve the right to suspend or terminate your account if any information provided during registration or thereafter proves to be inaccurate, not current, or incomplete."
+        ]
+      },
+      "ordering": {
+        "title": "4. Ordering and Payment",
+        "content": [
+          "4.1. By placing an order through our Service, you are making an offer to purchase the products or services described in your order.",
+          "4.2. We reserve the right to refuse or cancel any orders at our sole discretion. If we cancel an order after you have already been charged, we will refund the charged amount.",
+          "4.3. Payment must be made at the time of ordering. We accept various payment methods as indicated on our Service."
+        ]
+      },
+      "ip": {
+        "title": "5. Intellectual Property Rights",
+        "content": [
+          "5.1. The Service and its original content, features, and functionality are and will remain the exclusive property of our company and its licensors.",
+          "5.2. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of our company."
+        ]
+      },
+      "userContent": {
+        "title": "6. User Content",
+        "content": [
+          "6.1. Our Service may allow you to post, link, store, share and otherwise make available certain information, text, graphics, videos, or other material. You are responsible for the Content that you post on or through the Service.",
+          "6.2. By posting Content on or through the Service, you grant us the right to use, modify, publicly perform, publicly display, reproduce, and distribute such Content on and through the Service."
+        ]
+      },
+      "prohibited": {
+        "title": "7. Prohibited Uses",
+        "content": [
+          "You agree not to use the Service:",
+          "7.1. In any way that violates any applicable federal, state, local, or international law or regulation.",
+          "7.2. To transmit, or procure the sending of, any advertising or promotional material, including any \"junk mail,\" \"chain letter,\" \"spam,\" or any other similar solicitation.",
+          "7.3. To impersonate or attempt to impersonate our company, a company employee, another user, or any other person or entity."
+        ]
+      },
+      "liability": {
+        "title": "8. Limitation of Liability",
+        "content": [
+          "8.1. In no event shall our company, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses.",
+          "8.2. Our liability is limited to the maximum extent permitted by law."
+        ]
+      },
+      "changes": {
+        "title": "9. Changes to Terms",
+        "content": "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion."
+      },
+      "contact": {
+        "title": "10. Contact Us",
+        "content": "If you have any questions about these Terms, please contact us at legal@example.com or through our contact form."
+      }
+    }
+  }

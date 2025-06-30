@@ -1,0 +1,156 @@
+{
+    "title": "Sitemap",
+    "description": "Explore our website structure to find the information you need easily.",
+    "sections": {
+      "mainPages": {
+        "title": "Main Pages",
+        "items": [
+          {
+            "title": "Home",
+            "description": "Welcome page and overview of our services",
+            "path": "/"
+          },
+          {
+            "title": "About Us",
+            "description": "Our company history, mission, and team",
+            "path": "/about"
+          },
+          {
+            "title": "Services",
+            "description": "Details of services we offer",
+            "path": "/services"
+          },
+          {
+            "title": "Contact",
+            "description": "Get in touch with our team",
+            "path": "/contact"
+          }
+        ]
+      },
+      "userAccount": {
+        "title": "User Account",
+        "items": [
+          {
+            "title": "Login",
+            "description": "Access your account",
+            "path": "/login"
+          },
+          {
+            "title": "Sign Up",
+            "description": "Create a new account",
+            "path": "/signup"
+          },
+          {
+            "title": "Forgot Password",
+            "description": "Reset your password",
+            "path": "/forgot-password"
+          },
+          {
+            "title": "Dashboard",
+            "description": "Manage your account details",
+            "path": "/dashboard"
+          }
+        ]
+      },
+      "orderProducts": {
+        "title": "Order & Products",
+        "items": [
+          {
+            "title": "Products",
+            "description": "Browse our product catalog",
+            "path": "/products"
+          },
+          {
+            "title": "Pricing",
+            "description": "View our pricing plans",
+            "path": "/pricing"
+          },
+          {
+            "title": "Submit Order",
+            "description": "Place a custom order",
+            "path": "/submit-order"
+          },
+          {
+            "title": "Order Tracking",
+            "description": "Track your existing orders",
+            "path": "/order-tracking"
+          }
+        ]
+      },
+      "support": {
+        "title": "Support",
+        "items": [
+          {
+            "title": "Support Center",
+            "description": "Get help with our products and services",
+            "path": "/support"
+          },
+          {
+            "title": "FAQ",
+            "description": "Frequently asked questions",
+            "path": "/faq"
+          },
+          {
+            "title": "Documentation",
+            "description": "Technical guides and documentation",
+            "path": "/documentation"
+          },
+          {
+            "title": "Support Tickets",
+            "description": "Submit and track support tickets",
+            "path": "/tickets"
+          }
+        ]
+      },
+      "resources": {
+        "title": "Resources",
+        "items": [
+          {
+            "title": "Blog",
+            "description": "Articles, news, and updates",
+            "path": "/blog"
+          },
+          {
+            "title": "Case Studies",
+            "description": "Success stories from our clients",
+            "path": "/case-studies"
+          },
+          {
+            "title": "Webinars",
+            "description": "Online presentations and workshops",
+            "path": "/webinars"
+          },
+          {
+            "title": "Resources",
+            "description": "Downloadable guides, ebooks, and templates",
+            "path": "/resources"
+          }
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "items": [
+          {
+            "title": "Terms of Service",
+            "description": "Terms and conditions for using our services",
+            "path": "/terms-of-service"
+          },
+          {
+            "title": "Privacy Policy",
+            "description": "How we manage and protect your data",
+            "path": "/privacy-policy"
+          },
+          {
+            "title": "Cookie Policy",
+            "description": "How we use cookies on our website",
+            "path": "/cookie-policy"
+          },
+          {
+            "title": "Refund Policy",
+            "description": "Our policy for refunds and returns",
+            "path": "/refund-policy"
+          }
+        ]
+      }
+    }
+  }

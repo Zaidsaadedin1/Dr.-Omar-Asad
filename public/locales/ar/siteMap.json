@@ -1,0 +1,156 @@
+{
+  "title": "خريطة الموقع",
+  "description": "استكشف هيكل موقعنا للعثور بسهولة على المعلومات التي تحتاجها.",
+  "sections": {
+    "mainPages": {
+      "title": "الصفحات الرئيسية",
+      "items": [
+        {
+          "title": "الرئيسية",
+          "description": "صفحة الترحيب ونبذة عن خدماتنا",
+          "path": "/"
+        },
+        {
+          "title": "من نحن",
+          "description": "تاريخ الشركة، الرسالة، والفريق",
+          "path": "/about"
+        },
+        {
+          "title": "خدماتنا",
+          "description": "تفاصيل الخدمات التي نقدمها",
+          "path": "/services"
+        },
+        {
+          "title": "اتصل بنا",
+          "description": "تواصل مع فريقنا",
+          "path": "/contact"
+        }
+      ]
+    },
+    "userAccount": {
+      "title": "حساب المستخدم",
+      "items": [
+        {
+          "title": "تسجيل الدخول",
+          "description": "الوصول إلى حسابك",
+          "path": "/login"
+        },
+        {
+          "title": "إنشاء حساب",
+          "description": "إنشاء حساب جديد",
+          "path": "/signup"
+        },
+        {
+          "title": "نسيت كلمة المرور",
+          "description": "إعادة تعيين كلمة المرور",
+          "path": "/forgot-password"
+        },
+        {
+          "title": "لوحة التحكم",
+          "description": "إدارة تفاصيل حسابك",
+          "path": "/dashboard"
+        }
+      ]
+    },
+    "orderProducts": {
+      "title": "الطلبات والمنتجات",
+      "items": [
+        {
+          "title": "المنتجات",
+          "description": "تصفح كتالوج المنتجات",
+          "path": "/products"
+        },
+        {
+          "title": "الأسعار",
+          "description": "عرض خطط الأسعار",
+          "path": "/pricing"
+        },
+        {
+          "title": "إرسال طلب",
+          "description": "تقديم طلب مخصص",
+          "path": "/submit-order"
+        },
+        {
+          "title": "تتبع الطلب",
+          "description": "تتبع طلباتك الحالية",
+          "path": "/order-tracking"
+        }
+      ]
+    },
+    "support": {
+      "title": "الدعم",
+      "items": [
+        {
+          "title": "مركز الدعم",
+          "description": "الحصول على المساعدة حول منتجاتنا وخدماتنا",
+          "path": "/support"
+        },
+        {
+          "title": "الأسئلة الشائعة",
+          "description": "الأسئلة المتكررة",
+          "path": "/faq"
+        },
+        {
+          "title": "التوثيق",
+          "description": "أدلة تقنية وتوثيق",
+          "path": "/documentation"
+        },
+        {
+          "title": "تذاكر الدعم",
+          "description": "إرسال وتتبع تذاكر الدعم",
+          "path": "/tickets"
+        }
+      ]
+    },
+    "resources": {
+      "title": "الموارد",
+      "items": [
+        {
+          "title": "المدونة",
+          "description": "مقالات، أخبار، وتحديثات",
+          "path": "/blog"
+        },
+        {
+          "title": "دراسات الحالة",
+          "description": "قصص نجاح عملائنا",
+          "path": "/case-studies"
+        },
+        {
+          "title": "الندوات عبر الإنترنت",
+          "description": "عروض وورش عمل عبر الإنترنت",
+          "path": "/webinars"
+        },
+        {
+          "title": "الموارد",
+          "description": "أدلة قابلة للتنزيل، كتب إلكترونية، وقوالب",
+          "path": "/resources"
+        }
+      ]
+    },
+    "legal": {
+      "title": "القانوني",
+      "items": [
+        {
+          "title": "شروط الخدمة",
+          "description": "الشروط والأحكام لاستخدام خدماتنا",
+          "path": "/terms-of-service"
+        },
+        {
+          "title": "سياسة الخصوصية",
+          "description": "كيفية إدارة وحماية بياناتك",
+          "path": "/privacy-policy"
+        },
+        {
+          "title": "سياسة الكوكيز",
+          "description": "كيفية استخدام الكوكيز في موقعنا",
+          "path": "/cookie-policy"
+        },
+        {
+          "title": "سياسة الاسترجاع",
+          "description": "سياسة الاسترجاع والاسترداد لدينا",
+          "path": "/refund-policy"
+        }
+      ]
+    }
+  }
+}

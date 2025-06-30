@@ -1,0 +1,96 @@
+{
+  "hero": {
+    "name": "Dr. Omar Asad",
+    "title": "Psychiatrist & Addiction Specialist",
+    "description": "A certified psychiatrist with over 15 years of experience in mental health and addiction treatment. Specialized in providing comprehensive care and advanced treatment to patients across Jordan.",
+    "imageAlt": "Dr. Omar Asad",
+    "badges": {
+      "psychiatry": "Psychiatry",
+      "addiction": "Addiction Medicine",
+      "family": "Family Therapy",
+      "crisis": "Crisis Management"
+    }
+  },
+  "education": {
+    "title": "Education & Qualifications",
+    "degrees": {
+      "mbbs": {
+        "title": "Bachelor of Medicine & Surgery (MBBS)",
+        "institution": "University of Jordan - 2005"
+      },
+      "diploma": {
+        "title": "Diploma in Psychiatry",
+        "institution": "Royal College of Psychiatrists - 2008"
+      },
+      "fellowship": {
+        "title": "Fellowship in Addiction Medicine",
+        "institution": "American Institute of Addiction Medicine - 2012"
+      },
+      "cbt": {
+        "title": "Certificate in Cognitive Behavioral Therapy",
+        "institution": "Beck Institute for Cognitive Behavior Therapy - 2015"
+      },
+      "phd": {
+        "title": "PhD in Psychiatry",
+        "institution": "University of Manchester - 2018"
+      }
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "positions": {
+      "head": {
+        "title": "Head of Psychiatry Department",
+        "institution": "Jordan University Hospital",
+        "duration": "2020 - Present",
+        "description": "Supervising a team of 12 psychiatrists and providing care for inpatient and outpatient services"
+      },
+      "consultant": {
+        "title": "Consultant Psychiatrist",
+        "institution": "Al-Amal Mental Health Center",
+        "duration": "2015 - 2020",
+        "description": "Specialized in treating anxiety disorders, depression, and addiction treatment"
+      },
+      "resident": {
+        "title": "Resident Psychiatrist",
+        "institution": "King Hussein Medical Center",
+        "duration": "2008 - 2015",
+        "description": "Comprehensive training in all areas of psychiatry and psychotherapy"
+      }
+    }
+  },
+  "specializations": {
+    "title": "Specializations",
+    "items": {
+      "moodDisorders": {
+        "title": "Mood Disorders",
+        "description": "Depression, Mania, Bipolar Disorder"
+      },
+      "anxietyDisorders": {
+        "title": "Anxiety Disorders",
+        "description": "Generalized Anxiety, Panic, Social Phobia"
+      },
+      "addictionDisorders": {
+        "title": "Addiction Disorders",
+        "description": "Substance, Alcohol, Behavioral Addiction"
+      },
+      "psychoticDisorders": {
+        "title": "Psychotic Disorders",
+        "description": "Schizophrenia, Delusional Disorder"
+      },
+      "personalityDisorders": {
+        "title": "Personality Disorders",
+        "description": "Borderline, Narcissistic, Antisocial"
+      },
+      "familyTherapy": {
+        "title": "Family Therapy",
+        "description": "Couples, Family, Group Therapy"
+      }
+    }
+  },
+  "philosophy": {
+    "title": "Treatment Philosophy",
+    "paragraph1": "I believe that every patient deserves personalized care and specialized treatment. I strive to create a safe and comfortable environment where patients can express themselves freely and work together towards healing and recovery.",
+    "paragraph2": "I adopt a comprehensive approach that integrates medication and psychotherapy, focusing on each patient's individual needs and unique circumstances."
+  }
+}
