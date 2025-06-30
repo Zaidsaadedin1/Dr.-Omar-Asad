@@ -1,4 +1,4 @@
-"use client";
+// components/ContactForm.tsx
 
 import {
   TextInput,
@@ -25,11 +25,13 @@ const schema = z.object({
   message: z.string().min(1, { message: "Message is required" }),
 });
 
+type FormValues = z.infer<typeof schema>;
+
 export default function ContactForm() {
   const { t } = useTranslation("home");
   const [loading, setLoading] = useState(false);
 
-  const form = useForm({
+  const form = useForm<FormValues>({
     initialValues: {
       name: "",
       email: "",
@@ -40,42 +42,40 @@ export default function ContactForm() {
     validate: zodResolver(schema),
   });
 
-  // Form component
-  const handleSubmit = async (values: typeof form.values) => {
+  const handleSubmit = async (values: FormValues) => {
     setLoading(true);
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        body: JSON.stringify(values),
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       });
 
-      // Handle non-JSON responses
-      const contentType = response.headers.get("content-type");
-      let res;
-
-      if (contentType?.includes("application/json")) {
-        res = await response.json();
-      } else {
-        const text = await response.text();
-        throw new Error(`Unexpected response: ${text.slice(0, 100)}`);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send message");
       }
 
-      if (!response.ok) throw new Error(res.message || "Request failed");
-
       showNotification({
-        title: t("sendRequests.notifications.success_title"),
-        message: t("sendRequests.notifications.success_message"),
+        title: t("sendRequests.notifications.success_title") || "Success",
+        message:
+          t("sendRequests.notifications.success_message") ||
+          "Message sent successfully!",
         color: "green",
       });
+
       form.reset();
-    } catch (error: unknown) {
+    } catch (error) {
+      console.error("Form submission error:", error);
+
       showNotification({
-        title: t("sendRequests.notifications.error_title"),
+        title: t("sendRequests.notifications.error_title") || "Error",
         message:
           error instanceof Error
             ? error.message
-            : t("sendRequests.notifications.error_message"),
+            : t("sendRequests.notifications.error_message") ||
+              "Failed to send message",
         color: "red",
       });
     } finally {
@@ -87,44 +87,68 @@ export default function ContactForm() {
     <Paper p="xl" radius="xl" shadow="lg" pos="relative">
       <LoadingOverlay visible={loading} zIndex={1000} />
       <Title order={3} mb="lg" ta="center">
-        {t("contact_form_title")}
+        {t("contact_form_title") || "Contact Form"}
       </Title>
 
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack gap="md">
           <TextInput
-            label={t("form_name_label")}
-            placeholder={t("form_name_placeholder")}
+            label={t("form_name_label") || "Name"}
+            placeholder={t("form_name_placeholder") || "Enter your name"}
             {...form.getInputProps("name")}
           />
+
           <TextInput
-            label={t("form_email_label")}
-            placeholder={t("form_email_placeholder")}
+            label={t("form_email_label") || "Email"}
+            placeholder={t("form_email_placeholder") || "Enter your email"}
+            type="email"
             {...form.getInputProps("email")}
           />
+
           <TextInput
-            label={t("form_phone_label")}
-            placeholder={t("form_phone_placeholder")}
+            label={t("form_phone_label") || "Phone"}
+            placeholder={
+              t("form_phone_placeholder") || "Enter your phone number"
+            }
+            type="tel"
             {...form.getInputProps("phone")}
           />
+
           <Select
-            label={t("form_service_label")}
-            placeholder={t("form_service_placeholder")}
+            label={t("form_service_label") || "Service"}
+            placeholder={t("form_service_placeholder") || "Select a service"}
             data={[
-              { value: "individual", label: t("service_individual") },
-              { value: "couples", label: t("service_couples") },
-              { value: "family", label: t("service_family") },
-              { value: "group", label: t("service_group") },
+              {
+                value: "individual",
+                label: t("service_individual") || "Individual Therapy",
+              },
+              {
+                value: "couples",
+                label: t("service_couples") || "Couples Therapy",
+              },
+              {
+                value: "family",
+                label: t("service_family") || "Family Therapy",
+              },
+              {
+                value: "group",
+                label: t("service_group") || "Group Therapy",
+              },
             ]}
             {...form.getInputProps("service")}
           />
+
           <Textarea
-            label={t("form_message_label")}
-            placeholder={t("form_message_placeholder")}
+            label={t("form_message_label") || "Message"}
+            placeholder={
+              t("form_message_placeholder") || "Tell us about your needs"
+            }
             autosize
             minRows={3}
+            maxRows={8}
             {...form.getInputProps("message")}
           />
+
           <Button
             type="submit"
             variant="gradient"
@@ -132,8 +156,9 @@ export default function ContactForm() {
             fullWidth
             mt="md"
             disabled={loading}
+            loading={loading}
           >
-            {t("form_submit")}
+            {loading ? "Sending..." : t("form_submit") || "Send Message"}
           </Button>
         </Stack>
       </form>
