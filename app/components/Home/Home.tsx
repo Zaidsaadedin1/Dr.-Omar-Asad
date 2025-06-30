@@ -17,7 +17,6 @@ import {
   Timeline,
   Accordion,
   SimpleGrid,
-  TextInput,
   Modal,
   Avatar,
   Overlay,
