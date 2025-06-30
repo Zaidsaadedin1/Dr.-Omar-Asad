@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button, Modal, Text, Notification } from "@mantine/core";
 import { IconPhone, IconCheck } from "@tabler/icons-react";
-import { t } from "i18next";
 import { useTranslation } from "next-i18next";
 
 export default function CallNowButton() {

@@ -50,25 +50,25 @@ export default async function handler(
       to: process.env.CONTACT_EMAIL,
       subject: `New Contact: ${service} Consultation`,
       html: `
-        <h2>New Contact Request</h2>
-        <p><strong>Service:</strong> ${service}</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
-        <hr>
-        <p>Sent on: ${new Date().toLocaleString()}</p>
-      `,
+                <h2>New Contact Request</h2>
+                <p><strong>Service:</strong> ${service}</p>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Message:</strong></p>
+                <p>${message.replace(/\n/g, "<br>")}</p>
+                <hr>
+                <p>Sent on: ${new Date().toLocaleString()}</p>
+            `,
     });
 
     res.status(200).json({ message: "Email sent successfully" });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Email sending error:", error);
     res.status(500).json({
       message:
         process.env.NODE_ENV === "development"
-          ? error.message
+          ? (error as Error).message
           : "Failed to send email. Please try again later.",
     });
   }

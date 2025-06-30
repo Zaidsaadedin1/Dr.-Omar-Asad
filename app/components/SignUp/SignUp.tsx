@@ -246,10 +246,10 @@ const SignUp = () => {
           <Title
             order={2}
             mb="md"
-            style={(theme) => ({
+            style={{
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-            })}
+            }}
           >
             {t("title")}
           </Title>

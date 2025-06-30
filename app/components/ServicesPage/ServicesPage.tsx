@@ -32,7 +32,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 const ServicesPage = () => {
-  const { t, i18n } = useTranslation("services");
+  const { t } = useTranslation("services");
   const router = useRouter();
   const currentLang = router.locale || "en"; // locale from Next.js router
   const isRTL = currentLang === "ar";

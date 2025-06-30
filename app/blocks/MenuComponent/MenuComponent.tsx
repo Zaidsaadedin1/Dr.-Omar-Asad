@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Group,
-  Text,
-  Image,
-  Menu,
-  Flex,
-  Stack,
-  Box,
-  Grid,
-} from "@mantine/core";
+import { Button, Group, Text, Menu, Flex } from "@mantine/core";
 import {
   IconLogin,
   IconUser,

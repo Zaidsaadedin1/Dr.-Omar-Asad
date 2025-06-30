@@ -14,29 +14,19 @@ import {
   ThemeIcon,
   Image,
   List,
-  ActionIcon,
   Timeline,
   Accordion,
   SimpleGrid,
   TextInput,
-  Textarea,
-  Select,
   Modal,
   Avatar,
-  Rating,
   Overlay,
 } from "@mantine/core";
 import {
   IconUsers,
   IconHeart,
-  IconBrandInstagram,
-  IconBrandFacebook,
-  IconBrandLinkedin,
-  IconBrandTwitter,
   IconCalendar,
-  IconPhone,
   IconMail,
-  IconMapPin,
   IconStethoscope,
   IconMessageCircle,
   IconVideo,
@@ -49,7 +39,6 @@ import {
   IconUserCheck,
   IconChevronRight,
   IconChevronLeft,
-  IconQuote,
   IconCheck,
   IconArrowRight,
   IconArrowLeft,
@@ -59,7 +48,6 @@ import {
 } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { on } from "events";
 import ContactForm from "../../blocks/ContactForm/ContactForm";
 import CallNowButton from "../../blocks/CallNowButton/CallNowButton";
 
@@ -229,37 +217,6 @@ export const HomePage = () => {
       color: "red",
       price: t("service_6_price"),
       duration: t("service_6_duration"),
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: t("testimonial_1_name"),
-      text: t("testimonial_1_text"),
-      rating: 5,
-      role: t("testimonial_1_role"),
-      image: "/api/placeholder/60/60",
-    },
-    {
-      name: t("testimonial_2_name"),
-      text: t("testimonial_2_text"),
-      rating: 5,
-      role: t("testimonial_2_role"),
-      image: "/api/placeholder/60/60",
-    },
-    {
-      name: t("testimonial_3_name"),
-      text: t("testimonial_3_text"),
-      rating: 5,
-      role: t("testimonial_3_role"),
-      image: "/api/placeholder/60/60",
-    },
-    {
-      name: t("testimonial_4_name"),
-      text: t("testimonial_4_text"),
-      rating: 4,
-      role: t("testimonial_4_role"),
-      image: "/api/placeholder/60/60",
     },
   ];
 

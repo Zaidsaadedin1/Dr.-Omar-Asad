@@ -14,7 +14,7 @@ import { useForm, zodResolver } from "@mantine/form";
 import { useTranslation } from "next-i18next";
 import { showNotification } from "@mantine/notifications";
 import { z } from "zod";
-import { useState } from "react";
+import React, { useState } from "react";
 
 // Define schema
 const schema = z.object({
@@ -69,10 +69,13 @@ export default function ContactForm() {
         color: "green",
       });
       form.reset();
-    } catch (error: any) {
+    } catch (error: unknown) {
       showNotification({
         title: t("sendRequests.notifications.error_title"),
-        message: error.message || t("sendRequests.notifications.error_message"),
+        message:
+          error instanceof Error
+            ? error.message
+            : t("sendRequests.notifications.error_message"),
         color: "red",
       });
     } finally {
