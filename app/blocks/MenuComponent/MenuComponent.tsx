@@ -310,6 +310,8 @@ const MenuComponent = () => {
         <Text
           style={{
             color: COLORS.darkGreenText,
+            fontSize: "1rem",
+            padding: "8px 14px",
           }}
           variant="subtle"
           fw={600}
