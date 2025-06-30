@@ -53,8 +53,8 @@ function App({
 
           <Stack
             className={openSansFont.className}
-            mr="10%"
-            ml="10%"
+            mr="5%"
+            ml="5%"
             style={{ direction: dir }}
           >
             <MenuComponent />

@@ -145,6 +145,8 @@ const MenuComponent = () => {
             style={{
               backgroundColor: COLORS.lightGreen,
               color: COLORS.darkGreenText,
+              fontSize: "1rem", // Suitable for phones
+              padding: "8px 14px", // Slightly larger touch area
             }}
           >
             {t("menu")}
@@ -211,6 +213,8 @@ const MenuComponent = () => {
             style={{
               backgroundColor: COLORS.lightGreen,
               color: COLORS.darkGreenText,
+              fontSize: "1rem", // Suitable for phones
+              padding: "8px 14px",
             }}
           >
             {t("patient_portal")}

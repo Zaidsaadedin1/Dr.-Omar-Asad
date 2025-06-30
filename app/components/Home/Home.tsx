@@ -399,7 +399,11 @@ export const HomePage = () => {
               fw={900}
               c="white"
               mb="md"
-              style={{ maxWidth: "800px" }}
+              style={{
+                maxWidth: "800px",
+                fontSize: "3rem", // Suitable for phones
+                padding: "8px 14px",
+              }}
             >
               {t("hero_title")}
             </Title>
