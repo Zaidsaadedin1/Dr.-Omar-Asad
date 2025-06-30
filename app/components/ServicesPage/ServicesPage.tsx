@@ -51,7 +51,6 @@ const ServicesPage = () => {
         t("psychiatric_consultation_feature_4"),
       ],
       duration: t("psychiatric_consultation_duration"),
-      price: t("psychiatric_consultation_price"),
     },
     {
       id: "addiction-treatment",
@@ -66,7 +65,6 @@ const ServicesPage = () => {
         t("addiction_treatment_feature_4"),
       ],
       duration: t("addiction_treatment_duration"),
-      price: t("addiction_treatment_price"),
     },
     {
       id: "family-therapy",
@@ -81,7 +79,6 @@ const ServicesPage = () => {
         t("family_therapy_feature_4"),
       ],
       duration: t("family_therapy_duration"),
-      price: t("family_therapy_price"),
     },
     {
       id: "crisis-management",
@@ -96,7 +93,6 @@ const ServicesPage = () => {
         t("crisis_management_feature_4"),
       ],
       duration: t("crisis_management_duration"),
-      price: t("crisis_management_price"),
     },
     {
       id: "cognitive-therapy",
@@ -111,7 +107,6 @@ const ServicesPage = () => {
         t("cognitive_therapy_feature_4"),
       ],
       duration: t("cognitive_therapy_duration"),
-      price: t("cognitive_therapy_price"),
     },
     {
       id: "group-therapy",
@@ -126,7 +121,6 @@ const ServicesPage = () => {
         t("group_therapy_feature_4"),
       ],
       duration: t("group_therapy_duration"),
-      price: t("group_therapy_price"),
     },
   ];
 
@@ -216,9 +210,6 @@ const ServicesPage = () => {
                           {service.duration}
                         </Text>
                       </Group>
-                      <Badge variant="light" color={service.color}>
-                        {service.price}
-                      </Badge>
                     </Group>
 
                     <Button

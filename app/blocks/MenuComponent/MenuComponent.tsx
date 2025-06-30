@@ -133,7 +133,6 @@ const MenuComponent = () => {
   const menuItems = [
     { path: "/about", icon: IconInfoCircle, text: t("about_doctor") },
     { path: "/services", icon: IconStethoscope, text: t("services") },
-    { path: "/specializations", icon: IconBrain, text: t("specializations") },
     { path: "/bloomMental", icon: IconUsers, text: t("bloom_mental") },
     { path: "/appointments", icon: IconCalendar, text: t("book_appointment") },
     { path: "/contact", icon: IconPhone, text: t("contact") },
@@ -230,6 +229,7 @@ const MenuComponent = () => {
                 flexDirection: isRTL ? "row-reverse" : "row",
                 color: COLORS.darkPinkText,
               }}
+              wrap="nowrap"
             >
               <IconUser size={12} color={COLORS.darkPinkText} />
               <Text size="sm">{t("register_patient")}</Text>

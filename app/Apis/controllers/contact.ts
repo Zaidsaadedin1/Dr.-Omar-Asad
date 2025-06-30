@@ -1,4 +1,3 @@
-// pages/api/contact.ts
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
@@ -11,7 +10,13 @@ export default async function handler(
   }
 
   try {
-    const { name, email, phone, service, message } = req.body;
+    const { name, email, phone, service, message } = req.body as {
+      name: string;
+      email: string;
+      phone: string;
+      service: string;
+      message: string;
+    };
 
     // Validate required fields
     if (!name || !email || !phone || !service || !message) {
@@ -25,14 +30,6 @@ export default async function handler(
     if (!emailRegex.test(email)) {
       return res.status(400).json({
         message: "Invalid email format",
-      });
-    }
-
-    // Validate phone format (basic validation)
-    const phoneRegex = /^[0-9+-\s]{7,15}$/;
-    if (!phoneRegex.test(phone)) {
-      return res.status(400).json({
-        message: "Invalid phone format",
       });
     }
 
@@ -65,11 +62,14 @@ export default async function handler(
     res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Email sending error:", error);
+    let errorMessage: string;
+    if (process.env.NODE_ENV === "development") {
+      errorMessage = error instanceof Error ? error.message : String(error);
+    } else {
+      errorMessage = "Failed to send email. Please try again later.";
+    }
     res.status(500).json({
-      message:
-        process.env.NODE_ENV === "development"
-          ? (error as Error).message
-          : "Failed to send email. Please try again later.",
+      message: errorMessage,
     });
   }
 }
