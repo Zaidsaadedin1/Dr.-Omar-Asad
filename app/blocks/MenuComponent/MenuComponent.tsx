@@ -7,7 +7,6 @@ import {
   IconDashboard,
   IconLogout,
   IconStethoscope,
-  IconPhone,
   IconInfoCircle,
   IconUsers,
   IconMedicalCross,
