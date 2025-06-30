@@ -147,7 +147,12 @@ const ServicesPage = () => {
   return (
     <Container size="lg" py="xl" dir={isRTL ? "rtl" : "ltr"}>
       {/* Header */}
-      <Paper p="xl" mb="xl" bg="gradient-to-r from-blue-50 to-blue-100">
+      <Paper
+        dir={isRTL ? "rtl" : "ltr"}
+        p="xl"
+        mb="xl"
+        bg="gradient-to-r from-blue-50 to-blue-100"
+      >
         <Stack align="center" gap="md">
           <ThemeIcon size={60} variant="light" color="blue">
             <IconStethoscope size={30} />
@@ -162,14 +167,18 @@ const ServicesPage = () => {
       </Paper>
 
       {/* Main Services */}
-      <Stack gap="xl">
+      <Stack gap="xl" dir={isRTL ? "rtl" : "ltr"}>
         <Box>
           <Title order={2} mb="lg" c="dark">
             {t("main_services_title")}
           </Title>
           <Grid>
             {services.map((service) => (
-              <Grid.Col key={service.id} span={{ base: 12, md: 6, lg: 4 }}>
+              <Grid.Col
+                dir={isRTL ? "rtl" : "ltr"}
+                key={service.id}
+                span={{ base: 12, md: 6, lg: 4 }}
+              >
                 <Card p="lg" h="100%" shadow="sm" withBorder>
                   <Stack gap="md" h="100%">
                     <Group>
@@ -233,7 +242,7 @@ const ServicesPage = () => {
         <Divider />
 
         {/* Emergency Services */}
-        <Box>
+        <Box dir={isRTL ? "rtl" : "ltr"}>
           <Group mb="lg">
             <ThemeIcon size={32} variant="light" color="red">
               <IconEmergencyBed size={18} />
@@ -247,9 +256,13 @@ const ServicesPage = () => {
             {t("emergency_services_description")}
           </Text>
 
-          <Grid>
+          <Grid dir={isRTL ? "rtl" : "ltr"}>
             {emergencyServices.map((service, index) => (
-              <Grid.Col key={index} span={{ base: 12, md: 4 }}>
+              <Grid.Col
+                dir={isRTL ? "rtl" : "ltr"}
+                key={index}
+                span={{ base: 12, md: 4 }}
+              >
                 <Card p="md" bg="red.0" withBorder>
                   <Group mb="sm">
                     <ThemeIcon size={32} variant="light" color="red">
@@ -275,11 +288,11 @@ const ServicesPage = () => {
 
         {/* Service Process */}
         <Box>
-          <Title order={2} mb="lg" c="dark">
+          <Title dir={isRTL ? "rtl" : "ltr"} order={2} mb="lg" c="dark">
             {t("service_process_title")}
           </Title>
-          <Grid>
-            <Grid.Col span={{ base: 12, md: 3 }}>
+          <Grid dir={isRTL ? "rtl" : "ltr"}>
+            <Grid.Col dir={isRTL ? "rtl" : "ltr"} span={{ base: 12, md: 3 }}>
               <Card p="md" ta="center" bg="blue.0">
                 <ThemeIcon
                   size={40}
@@ -298,7 +311,7 @@ const ServicesPage = () => {
                 </Text>
               </Card>
             </Grid.Col>
-            <Grid.Col span={{ base: 12, md: 3 }}>
+            <Grid.Col dir={isRTL ? "rtl" : "ltr"} span={{ base: 12, md: 3 }}>
               <Card p="md" ta="center" bg="green.0">
                 <ThemeIcon
                   size={40}
@@ -317,7 +330,7 @@ const ServicesPage = () => {
                 </Text>
               </Card>
             </Grid.Col>
-            <Grid.Col span={{ base: 12, md: 3 }}>
+            <Grid.Col dir={isRTL ? "rtl" : "ltr"} span={{ base: 12, md: 3 }}>
               <Card p="md" ta="center" bg="orange.0">
                 <ThemeIcon
                   size={40}
@@ -336,7 +349,7 @@ const ServicesPage = () => {
                 </Text>
               </Card>
             </Grid.Col>
-            <Grid.Col span={{ base: 12, md: 3 }}>
+            <Grid.Col dir={isRTL ? "rtl" : "ltr"} span={{ base: 12, md: 3 }}>
               <Card p="md" ta="center" bg="purple.0">
                 <ThemeIcon
                   size={40}
@@ -359,13 +372,19 @@ const ServicesPage = () => {
         </Box>
 
         {/* Call to Action */}
-        <Paper p="xl" bg="blue.6" c="white" ta="center">
-          <Stack gap="md" align="center">
+        <Paper
+          dir={isRTL ? "rtl" : "ltr"}
+          p="xl"
+          bg="blue.6"
+          c="white"
+          ta="center"
+        >
+          <Stack dir={isRTL ? "rtl" : "ltr"} gap="md" align="center">
             <Title order={3}>{t("cta_title")}</Title>
             <Text size="lg" maw={600}>
               {t("cta_description")}
             </Text>
-            <Group>
+            <Group dir={isRTL ? "rtl" : "ltr"}>
               <Button
                 size="lg"
                 variant="white"

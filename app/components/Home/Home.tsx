@@ -259,14 +259,14 @@ export const HomePage = () => {
 
   const teamMembers = [
     {
-      name: t("team_1_name"),
+      name: t("team_2_name"),
       role: t("team_1_role"),
       bio: t("team_1_bio"),
       image: "/images/Doctor Omar Asad.jpg",
       specialties: [t("team_1_specialty_1"), t("team_1_specialty_2")],
     },
     {
-      name: t("team_2_name"),
+      name: t("team_1_name"),
       role: t("team_2_role"),
       bio: t("team_2_bio"),
       image: "/images/dr.omar_fauri.jpg",

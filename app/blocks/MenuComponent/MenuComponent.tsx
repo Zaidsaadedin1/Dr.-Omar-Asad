@@ -152,7 +152,7 @@ const MenuComponent = () => {
             {t("menu")}
           </Button>
         </Menu.Target>
-        <Menu.Dropdown style={{ backgroundColor: COLORS.lightPink }}>
+        <Menu.Dropdown>
           {menuItems.map((item) => (
             <Menu.Item
               key={item.path}
@@ -208,10 +208,9 @@ const MenuComponent = () => {
       <Menu shadow="md" width={200}>
         <Menu.Target>
           <Button
-            size="12"
             variant="subtle"
+            ff="Oswald, sans-serif"
             style={{
-              direction: isRTL ? "rtl" : "ltr",
               backgroundColor: COLORS.lightGreen,
               color: COLORS.darkGreenText,
             }}
@@ -219,7 +218,7 @@ const MenuComponent = () => {
             {t("patient_portal")}
           </Button>
         </Menu.Target>
-        <Menu.Dropdown style={{ backgroundColor: COLORS.lightPink }}>
+        <Menu.Dropdown>
           <Menu.Item onClick={() => router.push(`/${currentLang}/signUp`)}>
             <Group
               gap={2}
