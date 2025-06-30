@@ -57,7 +57,6 @@ export const HomePage = () => {
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
   const isRTL = i18n.language === "ar";
-  const [newsletterEmail, setNewsletterEmail] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const currentLang = i18n.language;
   // Statistics counter animation
