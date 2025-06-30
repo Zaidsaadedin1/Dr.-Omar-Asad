@@ -935,40 +935,24 @@ export const HomePage = () => {
           <Text size="xl" mb="xl" maw={600} mx="auto" opacity={0.9}>
             {t("newsletter_subtitle")}
           </Text>
-          <Group
-            justify="center"
-            maw={500}
-            mx="auto"
-            style={{ flexDirection: getFlexDirection("row") }}
+
+          <Button
+            size="lg"
+            variant="white"
+            color="violet"
+            radius="xl"
+            onClick={() =>
+              router.push(
+                `https://www.instagram.com/channel/AbaO8zprAXQaS-8h/?igsh=MXM2NW9tNTNlejJm`
+              )
+            }
+            style={{
+              padding: "16px 32px",
+              fontSize: "16px",
+            }}
           >
-            <TextInput
-              placeholder={t("newsletter_placeholder")}
-              size="lg"
-              radius="xl"
-              flex={1}
-              value={newsletterEmail}
-              onChange={(e) => setNewsletterEmail(e.target.value)}
-              styles={{
-                input: {
-                  padding: "16px 24px",
-                  fontSize: "16px",
-                },
-              }}
-            />
-            <Button
-              size="lg"
-              variant="white"
-              color="violet"
-              radius="xl"
-              onClick={() => setShowSuccessModal(true)}
-              style={{
-                padding: "16px 32px",
-                fontSize: "16px",
-              }}
-            >
-              {t("subscribe")}
-            </Button>
-          </Group>
+            {t("subscribe")}
+          </Button>
         </Paper>
 
         {/* Contact Section */}
