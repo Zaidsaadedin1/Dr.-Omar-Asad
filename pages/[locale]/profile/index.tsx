@@ -4,10 +4,16 @@ import Profile from "../../../app/components/Profile/Profile";
 import { checkAuth } from "../../../checkIsAuthMiddleware";
 import userController from "../../../app/Apis/controllers/userController";
 import { GetServerSideProps } from "next";
+import { GetUserDto } from "../../../app/Apis/types/userDtos/userDtos";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { params } = context;
-  const locale = (params?.locale as string) || i18nConfig.defaultLocale;
+type Props = {
+  user: GetUserDto | null;
+};
+
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context
+) => {
+  const { locale } = context;
   const authCheck = await checkAuth(context);
 
   if (!authCheck.authenticated) {
@@ -18,16 +24,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       },
     };
   }
-  const res = await userController.getUserById(authCheck.user?.id);
+
+  const userRes = await userController.getUserById(authCheck.user?.id);
 
   return {
     props: {
       ...(await serverSideTranslations(locale || i18nConfig.defaultLocale, [
         "profile",
-        "menuComponent",
         "footer",
       ])),
-      user: res.data,
+      user: userRes.data ?? null,
     },
   };
 };
