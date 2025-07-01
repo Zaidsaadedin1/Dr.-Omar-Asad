@@ -7,7 +7,6 @@ i18n
   .use(HttpBackend)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
     supportedLngs: ["en", "ar"],
     lng: "en", // default
     interpolation: {
