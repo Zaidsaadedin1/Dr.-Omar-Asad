@@ -140,7 +140,7 @@ const MenuComponent = () => {
             variant="subtle"
             ff="Oswald, sans-serif"
             style={{
-              backgroundColor: COLORS.lightGreen,
+              backgroundColor: COLORS.lightPink,
               color: COLORS.darkGreenText,
               fontSize: "1rem", // Suitable for phones
               padding: "8px 14px", // Slightly larger touch area
