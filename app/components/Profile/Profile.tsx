@@ -40,7 +40,23 @@ const Profile = ({ user }: { user: GetUserDto }) => {
   const isRTL = currentLang === "ar";
   const router = useRouter();
   const [userOrders, setUserOrders] = useState<GetOrderDto[]>([]);
-
+  console.log(
+    "selected lang",
+    i18n.language,
+    "isRTL",
+    isRTL,
+    "user",
+    user,
+    "userOrders",
+    userOrders,
+    "currentLang",
+    currentLang,
+    "t",
+    t,
+    "router",
+    router,
+    router.locale
+  );
   useEffect(() => {
     const fetchUserOrders = async () => {
       try {
