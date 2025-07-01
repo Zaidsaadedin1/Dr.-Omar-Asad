@@ -58,7 +58,7 @@ const Profile = ({ user }: { user: GetUserDto }) => {
     };
 
     fetchUserOrders();
-  }, [user.id]); // Added user.id as dependency
+  }, [user.id]);
 
   const schema = z.object({
     userName: z

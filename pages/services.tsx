@@ -1,0 +1,18 @@
+// pages/login.tsx
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
+import ServicesPage from "../app/components/ServicesPage/ServicesPage";
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "en", [
+        "services",
+        "menuComponent",
+        "footer",
+      ])),
+    },
+  };
+};
+
+export default ServicesPage;

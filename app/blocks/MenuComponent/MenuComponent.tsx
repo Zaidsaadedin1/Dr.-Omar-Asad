@@ -27,7 +27,7 @@ const COLORS = {
 
 const MenuComponent = () => {
   const isMobileOrTablet = useMediaQuery("(max-width: 1200px)");
-  const { t, i18n } = useTranslation("menuComponent");
+  const { t, i18n } = useTranslation(["menuComponent", "common"]);
   const currentLang = i18n.language || "en";
   const router = useRouter();
   const { isAuthenticated, user, logout } = useAuth();
@@ -39,20 +39,17 @@ const MenuComponent = () => {
         <Button
           variant="subtle"
           ff="Oswald, sans-serif"
-          style={{
-            backgroundColor: COLORS.lightGreen,
-            color: COLORS.darkGreenText,
-          }}
+          style={{ backgroundColor: COLORS.lightPink }}
         >
           <Group
             gap={2}
             wrap="nowrap"
             style={{ flexDirection: isRTL ? "row-reverse" : "row" }}
           >
-            <IconUser size={12} color={COLORS.darkGreenText} />
-            <Text size="sm">{`${user?.firstName || ""} ${
-              user?.lastName || ""
-            }`}</Text>
+            <IconUser size={12} color={COLORS.darkPinkText} />
+            <Text color={COLORS.darkPinkText} size="sm">{`${
+              user?.firstName || ""
+            } ${user?.lastName || ""}`}</Text>
           </Group>
         </Button>
       </Menu.Target>
@@ -296,35 +293,33 @@ const MenuComponent = () => {
     <Flex
       align="center"
       justify="space-between"
+      mt="xs"
       direction={isRTL ? "row-reverse" : "row"}
-      p={isMobileOrTablet ? "md" : "lg"}
     >
+      {/* Logo */}
       <Flex
         align="center"
         gap="md"
         flex={1}
         justify={isRTL ? "flex-end" : "flex-start"}
-        style={{ cursor: "pointer" }}
-        onClick={() => router.push(`/${currentLang}/`)}
       >
         <Text
-          style={{
-            color: COLORS.darkGreenText,
-            fontSize: "1rem",
-            padding: "8px 14px",
-          }}
           variant="subtle"
           fw={600}
           ff="Oswald, sans-serif"
+          color={COLORS.darkPinkText}
+          fs={"1.2rem"}
         >
           {t("dr_omar_asad")}
         </Text>
       </Flex>
 
+      {/* Main Navigation */}
       <Flex align="center" gap="md" flex={1} justify="center">
         {renderMainMenu()}
       </Flex>
 
+      {/* Right Side Actions */}
       <Flex
         flex={1}
         align="center"

@@ -1,38 +1,57 @@
 import React from "react";
-import { Menu } from "@mantine/core";
+import { Menu, Button } from "@mantine/core";
 import { IconLanguage } from "@tabler/icons-react";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
-const languages = [
-  { code: "en", label: "English" },
-  { code: "ar", label: "العربية" },
-];
+const COLORS = {
+  lightGreen: "#A8E6CF",
+  darkGreenText: "#004d40",
+  lightPink: "#FFEBEE",
+  darkPinkText: "#880E4F",
+  white: "#fff",
+};
 
 export default function LanguageSwitcher() {
   const router = useRouter();
-  const { locale, asPath } = router;
-
+  const { locale, pathname, query } = router;
+  const { t } = useTranslation("common");
+  const languages = [
+    { code: "en", label: t("common:English") },
+    { code: "ar", label: t("Arabic") },
+  ];
   const changeLocale = (newLocale: string) => {
-    if (locale === newLocale) return;
+    if (newLocale === locale) return;
 
-    const pathWithoutLocale = asPath.replace(/^\/(en|ar)/, ""); // Remove current locale
-    const newPath = `/${newLocale}${pathWithoutLocale || "/"}`; // Add new locale
+    // Set the cookie for middleware
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/`;
 
-    router.push(newPath);
+    // Use Next.js routing API with locale option
+    router.push({ pathname, query }, undefined, { locale: newLocale });
   };
 
   return (
     <Menu shadow="md" width={200}>
       <Menu.Target>
-        <IconLanguage size={16}>
+        <Button
+          color={COLORS.darkPinkText}
+          variant="subtle"
+          leftSection={<IconLanguage size={16} />}
+        >
           {languages.find((lang) => lang.code === locale)?.label ?? "Language"}
-        </IconLanguage>
+        </Button>
       </Menu.Target>
 
       <Menu.Dropdown>
-        <Menu.Label>Select language</Menu.Label>
+        <Menu.Label color={COLORS.darkPinkText}>
+          {t("select_language")}
+        </Menu.Label>
         {languages.map((lang) => (
-          <Menu.Item key={lang.code} onClick={() => changeLocale(lang.code)}>
+          <Menu.Item
+            color={COLORS.darkPinkText}
+            key={lang.code}
+            onClick={() => changeLocale(lang.code)}
+          >
             {lang.label}
           </Menu.Item>
         ))}

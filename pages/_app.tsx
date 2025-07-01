@@ -11,7 +11,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "../app/contexts/AuthContext";
 import { Notifications } from "@mantine/notifications";
 import { Open_Sans } from "next/font/google";
-import i18nConfig from "../next-i18next.config";
 import { theme } from "../theme"; // adjust this import
 
 const openSansFont = Open_Sans({
@@ -67,4 +66,4 @@ function App({
   );
 }
 
-export default appWithTranslation(App, i18nConfig);
+export default appWithTranslation(App);

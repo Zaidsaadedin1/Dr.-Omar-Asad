@@ -1,45 +1,28 @@
-// middleware.ts
 import { NextRequest, NextResponse } from "next/server";
 
-const locales = ["en", "ar"];
-const defaultLocale = "en";
+const PUBLIC_FILE = /\.(.*)$/;
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+export function middleware(req: NextRequest) {
+  const { pathname, search, locale } = req.nextUrl;
 
-  // Skip internal and static files
+  // Skip public files, _next, and API routes
   if (
     pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/favicon.ico") ||
-    /\.(.*)$/.test(pathname)
+    pathname.includes("/api/") ||
+    PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();
   }
 
-  const pathLocale = pathname.split("/")[1];
+  // Only redirect if locale is 'default'
+  if (locale === "default") {
+    const cookieLocale = req.cookies.get("NEXT_LOCALE")?.value || "en";
 
-  // If path already includes a valid locale, continue
-  if (locales.includes(pathLocale)) {
-    return NextResponse.next();
+    return NextResponse.redirect(
+      new URL(`/${cookieLocale}${pathname}${search}`, req.url)
+    );
   }
 
-  // Get browser language
-  const langHeader = request.headers.get("accept-language") || "";
-  const browserLocale = langHeader.split(",")[0].split("-")[0];
-  const locale = locales.includes(browserLocale)
-    ? browserLocale
-    : defaultLocale;
-
-  // Redirect to locale-prefixed path
-  const newUrl = request.nextUrl.clone();
-  newUrl.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
-
-  console.log("[middleware] redirecting to:", newUrl.pathname);
-
-  return NextResponse.redirect(newUrl);
+  // Allow request to continue as-is
+  return NextResponse.next();
 }
-
-export const config = {
-  matcher: ["/((?!_next|api|favicon.ico|.*\\..*).*)"],
-};

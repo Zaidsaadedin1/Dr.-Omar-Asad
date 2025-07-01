@@ -12,7 +12,6 @@ import {
   Checkbox,
   Divider,
   Anchor,
-  Input,
 } from "@mantine/core";
 import { z } from "zod";
 import { useForm } from "@mantine/form";
@@ -32,7 +31,7 @@ const fadeIn = keyframes({
 
 export default function consultation() {
   const router = useRouter();
-  const { t, i18n } = useTranslation("requestService");
+  const { t, i18n } = useTranslation("consultation");
   const currentLang = i18n.language;
   const isRTL = currentLang === "ar";
   const { user } = useAuth();
@@ -251,6 +250,17 @@ export default function consultation() {
           <Grid>
             <Grid.Col span={6}>
               <TextInput
+                label={t("fields.phone")}
+                placeholder={t("placeholders.phone")}
+                mb="md"
+                required
+                value={form.values.phone}
+                disabled={!!user?.phoneNumber}
+                {...form.getInputProps("phone")}
+              />
+            </Grid.Col>
+            <Grid.Col span={6}>
+              <TextInput
                 label={t("fields.email")}
                 placeholder={t("placeholders.email")}
                 leftSection={<IconMail size={16} />}
@@ -260,13 +270,6 @@ export default function consultation() {
                 value={form.values.email}
                 disabled={!!user?.email}
                 {...form.getInputProps("email")}
-              />
-            </Grid.Col>
-            <Grid.Col span={6}>
-              <Input.Wrapper
-                label={t("fields.phoneNumber")}
-                error={form.errors.phone}
-                {...form.getInputProps("phone")}
               />
             </Grid.Col>
           </Grid>

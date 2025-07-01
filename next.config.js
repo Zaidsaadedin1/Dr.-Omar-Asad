@@ -1,11 +1,7 @@
+const { i18n } = require("./next-i18next.config");
+
 module.exports = {
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/en", // or your default locale
-        permanent: false,
-      },
-    ];
-  },
+  i18n,
+  trailingSlash: true,
+  // other Next.js config...
 };

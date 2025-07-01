@@ -4,8 +4,7 @@ import React from "react";
 import { IconHome } from "@tabler/icons-react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { i18nConfig } from "../../../i18n-config";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 const UnAuthorized = () => {
@@ -26,24 +25,15 @@ const UnAuthorized = () => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: i18nConfig.locales.map((locale) => ({
-      params: { locale },
-    })),
-    fallback: false,
-  };
-};
+// pages/login.tsx
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const locale = (params?.locale as string) || i18nConfig.defaultLocale;
-
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, [
+      ...(await serverSideTranslations(locale ?? "en", [
         "common",
-        "footer",
         "menuComponent",
+        "footer",
       ])),
     },
   };
