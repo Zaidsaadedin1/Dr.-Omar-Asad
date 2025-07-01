@@ -1,11 +1,11 @@
-// next-i18next.config.js
-/** @type {import('next-i18next').UserConfig} */
-const i18nConfig = {
+module.exports = {
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "ar"],
+    locales: ["en", "de"],
   },
-  localePath: "./public/locales", // Ensure your translation JSONs are in public/locales/en/ and public/locales/ar/
+  localePath:
+    typeof window === "undefined"
+      ? require("path").resolve("./public/locales")
+      : "/public/locales",
+  ns: ["common"],
 };
-
-module.exports = i18nConfig;
