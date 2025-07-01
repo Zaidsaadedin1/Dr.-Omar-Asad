@@ -297,39 +297,72 @@ const MenuComponent = () => {
       direction={isRTL ? "row-reverse" : "row"}
     >
       {/* Logo */}
-      <Flex
-        align="center"
-        gap="md"
-        flex={1}
-        justify={isRTL ? "flex-end" : "flex-start"}
-      >
-        <Text
-          variant="subtle"
-          fw={600}
-          ff="Oswald, sans-serif"
-          color={COLORS.darkPinkText}
-          fs={"1.2rem"}
-        >
-          {t("dr_omar_asad")}
-        </Text>
-      </Flex>
 
-      {/* Main Navigation */}
-      <Flex align="center" gap="md" flex={1} justify="center">
-        {renderMainMenu()}
-      </Flex>
+      {isRTL ? (
+        <Flex
+          align="center"
+          gap="sm"
+          direction={isRTL ? "row-reverse" : "row"}
+          justify="flex-start"
+        >
+          <LanguageSwitcher />
+          {isAuthenticated ? renderAuthMenu() : renderAccountMenu()}
+          {renderMainMenu()}
+        </Flex>
+      ) : (
+        <Flex
+          align="center"
+          gap="md"
+          justify={isRTL ? "flex-end" : "flex-start"}
+          dir={isRTL ? "rtl" : "ltr"}
+        >
+          <Button
+            onClick={() => router.push(`/${currentLang}/`)}
+            color={COLORS.lightPink}
+            variant="subtle"
+          >
+            <Text
+              variant="subtle"
+              fw={600}
+              ff="Oswald, sans-serif"
+              color={COLORS.darkPinkText}
+              fs={"1.2rem"}
+            >
+              {t("dr_omar_asad")}
+            </Text>
+          </Button>
+        </Flex>
+      )}
 
       {/* Right Side Actions */}
-      <Flex
-        flex={1}
-        align="center"
-        gap="sm"
-        direction={isRTL ? "row-reverse" : "row"}
-        justify="flex-end"
-      >
-        {isAuthenticated ? renderAuthMenu() : renderAccountMenu()}
-        <LanguageSwitcher />
-      </Flex>
+      {isRTL ? (
+        <Button
+          onClick={() => router.push(`/${currentLang}/`)}
+          color={COLORS.lightPink}
+          variant="subtle"
+        >
+          <Text
+            variant="subtle"
+            fw={600}
+            ff="Oswald, sans-serif"
+            color={COLORS.darkPinkText}
+            fs={"1.2rem"}
+          >
+            {t("dr_omar_asad")}
+          </Text>
+        </Button>
+      ) : (
+        <Flex
+          align="center"
+          gap="sm"
+          direction={isRTL ? "row-reverse" : "row"}
+          justify="flex-end"
+        >
+          {renderMainMenu()}
+          {isAuthenticated ? renderAuthMenu() : renderAccountMenu()}
+          <LanguageSwitcher />
+        </Flex>
+      )}
     </Flex>
   );
 };

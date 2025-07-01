@@ -36,9 +36,9 @@ import { useTranslation } from "next-i18next";
 
 const Profile = ({ user }: { user: GetUserDto }) => {
   const { t, i18n } = useTranslation("profile");
-  const currentLang = i18n.language;
-  const isRTL = currentLang === "ar";
   const router = useRouter();
+  const currentLang = router.locale;
+  const isRTL = currentLang === "ar";
   const [userOrders, setUserOrders] = useState<GetOrderDto[]>([]);
   console.log("Current locale:", i18n.language);
   console.log("Loaded namespaces:", i18n.options.ns);
