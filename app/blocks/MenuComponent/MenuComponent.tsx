@@ -27,11 +27,38 @@ const COLORS = {
 
 const MenuComponent = () => {
   const isMobileOrTablet = useMediaQuery("(max-width: 1200px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isSmallMobile = useMediaQuery("(max-width: 480px)");
   const { t, i18n } = useTranslation(["menuComponent", "common"]);
   const currentLang = i18n.language || "en";
   const router = useRouter();
   const { isAuthenticated, user, logout } = useAuth();
   const isRTL = currentLang === "ar";
+
+  // Responsive sizing helpers
+  const getIconSize = () => {
+    if (isSmallMobile) return 14;
+    if (isMobile) return 16;
+    return 18;
+  };
+
+  const getTextSize = () => {
+    if (isSmallMobile) return "xs";
+    if (isMobile) return "sm";
+    return "md";
+  };
+
+  const getButtonPadding = () => {
+    if (isSmallMobile) return "6px 10px";
+    if (isMobile) return "8px 12px";
+    return "10px 16px";
+  };
+
+  const getGapSize = () => {
+    if (isSmallMobile) return 4;
+    if (isMobile) return 6;
+    return 8;
+  };
 
   const renderAuthMenu = () => (
     <Menu>
@@ -39,17 +66,34 @@ const MenuComponent = () => {
         <Button
           variant="subtle"
           ff="Oswald, sans-serif"
-          style={{ backgroundColor: COLORS.lightPink }}
+          style={{
+            backgroundColor: COLORS.lightPink,
+            padding: getButtonPadding(),
+            fontSize: isSmallMobile
+              ? "0.75rem"
+              : isMobile
+              ? "0.875rem"
+              : "1rem",
+          }}
         >
           <Group
-            gap={2}
+            gap={getGapSize()}
             wrap="nowrap"
             style={{ flexDirection: isRTL ? "row-reverse" : "row" }}
           >
-            <IconUser size={12} color={COLORS.darkPinkText} />
-            <Text color={COLORS.darkPinkText} size="sm">{`${
-              user?.firstName || ""
-            } ${user?.lastName || ""}`}</Text>
+            <IconUser size={getIconSize()} color={COLORS.darkPinkText} />
+            <Text
+              color={COLORS.darkPinkText}
+              size={getTextSize()}
+              style={{
+                maxWidth: isSmallMobile ? "80px" : isMobile ? "120px" : "none",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {`${user?.firstName || ""} ${user?.lastName || ""}`}
+            </Text>
           </Group>
         </Button>
       </Menu.Target>
@@ -59,12 +103,13 @@ const MenuComponent = () => {
           style={{
             direction: isRTL ? "rtl" : "ltr",
             color: COLORS.darkPinkText,
+            padding: getButtonPadding(),
           }}
           ff="Oswald, sans-serif"
         >
-          <Group gap={2}>
-            <IconDashboard size={14} color={COLORS.darkPinkText} />
-            <Text size="sm">{t("patient_dashboard")}</Text>
+          <Group gap={getGapSize()}>
+            <IconDashboard size={getIconSize()} color={COLORS.darkPinkText} />
+            <Text size={getTextSize()}>{t("patient_dashboard")}</Text>
           </Group>
         </Menu.Item>
         {user?.Roles === "Admin" && (
@@ -73,12 +118,16 @@ const MenuComponent = () => {
             style={{
               direction: isRTL ? "rtl" : "ltr",
               color: COLORS.darkPinkText,
+              padding: getButtonPadding(),
             }}
             ff="Oswald, sans-serif"
           >
-            <Group gap={2}>
-              <IconMedicalCross size={14} color={COLORS.darkPinkText} />
-              <Text size="sm">{t("clinic_management")}</Text>
+            <Group gap={getGapSize()}>
+              <IconMedicalCross
+                size={getIconSize()}
+                color={COLORS.darkPinkText}
+              />
+              <Text size={getTextSize()}>{t("clinic_management")}</Text>
             </Group>
           </Menu.Item>
         )}
@@ -87,12 +136,13 @@ const MenuComponent = () => {
           style={{
             direction: isRTL ? "rtl" : "ltr",
             color: COLORS.darkPinkText,
+            padding: getButtonPadding(),
           }}
           ff="Oswald, sans-serif"
         >
-          <Group gap={2} wrap="nowrap">
-            <IconCalendar size={14} color={COLORS.darkPinkText} />
-            <Text size="sm">{t("my_appointments")}</Text>
+          <Group gap={getGapSize()} wrap="nowrap">
+            <IconCalendar size={getIconSize()} color={COLORS.darkPinkText} />
+            <Text size={getTextSize()}>{t("my_appointments")}</Text>
           </Group>
         </Menu.Item>
         <Menu.Item
@@ -100,12 +150,13 @@ const MenuComponent = () => {
           style={{
             direction: isRTL ? "rtl" : "ltr",
             color: COLORS.darkPinkText,
+            padding: getButtonPadding(),
           }}
           ff="Oswald, sans-serif"
         >
-          <Group gap={2} wrap="nowrap">
-            <IconUser size={14} color={COLORS.darkPinkText} />
-            <Text size="sm">{t("profile")}</Text>
+          <Group gap={getGapSize()} wrap="nowrap">
+            <IconUser size={getIconSize()} color={COLORS.darkPinkText} />
+            <Text size={getTextSize()}>{t("profile")}</Text>
           </Group>
         </Menu.Item>
         <Menu.Item
@@ -113,12 +164,13 @@ const MenuComponent = () => {
           style={{
             direction: isRTL ? "rtl" : "ltr",
             color: COLORS.darkPinkText,
+            padding: getButtonPadding(),
           }}
           ff="Oswald, sans-serif"
         >
-          <Group gap={2}>
-            <IconLogout size={14} color={COLORS.darkPinkText} />
-            <Text size="sm">{t("logout")}</Text>
+          <Group gap={getGapSize()}>
+            <IconLogout size={getIconSize()} color={COLORS.darkPinkText} />
+            <Text size={getTextSize()}>{t("logout")}</Text>
           </Group>
         </Menu.Item>
       </Menu.Dropdown>
@@ -134,16 +186,21 @@ const MenuComponent = () => {
 
   const renderMainMenu = () =>
     isMobileOrTablet ? (
-      <Menu shadow="md" width={250}>
+      <Menu shadow="md">
         <Menu.Target>
           <Button
             variant="subtle"
             ff="Oswald, sans-serif"
             style={{
-              backgroundColor: COLORS.lightPink,
-              color: COLORS.darkGreenText,
-              fontSize: "1rem", // Suitable for phones
-              padding: "8px 14px", // Slightly larger touch area
+              backgroundColor: COLORS.darkPinkText,
+              color: COLORS.lightPink,
+              fontSize: isSmallMobile
+                ? "0.75rem"
+                : isMobile
+                ? "0.875rem"
+                : "1rem",
+              padding: getButtonPadding(),
+              minWidth: isSmallMobile ? "60px" : "80px",
             }}
           >
             {t("menu")}
@@ -157,11 +214,12 @@ const MenuComponent = () => {
               style={{
                 direction: isRTL ? "rtl" : "ltr",
                 color: COLORS.darkPinkText,
+                padding: getButtonPadding(),
               }}
             >
-              <Group>
-                <item.icon size={12} color={COLORS.darkPinkText} />
-                <Text size="sm">{item.text}</Text>
+              <Group gap={getGapSize()}>
+                <item.icon size={getIconSize()} color={COLORS.darkPinkText} />
+                <Text size={getTextSize()}>{item.text}</Text>
               </Group>
             </Menu.Item>
           ))}
@@ -170,7 +228,7 @@ const MenuComponent = () => {
     ) : (
       <Group
         wrap="nowrap"
-        gap={5}
+        gap={getGapSize()}
         style={{
           fontFamily: "Oswald, sans-serif",
           flexDirection: isRTL ? "row-reverse" : "row",
@@ -185,15 +243,21 @@ const MenuComponent = () => {
               flexDirection: isRTL ? "row-reverse" : "row",
               backgroundColor: COLORS.lightPink,
               color: COLORS.darkPinkText,
+              padding: getButtonPadding(),
+              fontSize: isSmallMobile
+                ? "0.75rem"
+                : isMobile
+                ? "0.875rem"
+                : "1rem",
             }}
           >
             <Group
-              gap={2}
+              gap={getGapSize()}
               wrap="nowrap"
               style={{ flexDirection: isRTL ? "row-reverse" : "row" }}
             >
-              <item.icon size={12} color={COLORS.darkPinkText} />
-              <Text size="sm">{item.text}</Text>
+              <item.icon size={getIconSize()} color={COLORS.darkPinkText} />
+              <Text size={getTextSize()}>{item.text}</Text>
             </Group>
           </Button>
         ))}
@@ -202,25 +266,33 @@ const MenuComponent = () => {
 
   const renderAccountMenu = () =>
     isMobileOrTablet ? (
-      <Menu shadow="md" width={200}>
+      <Menu shadow="md" width={isSmallMobile ? 180 : 200}>
         <Menu.Target>
           <Button
             variant="subtle"
             ff="Oswald, sans-serif"
             style={{
-              backgroundColor: COLORS.lightGreen,
-              color: COLORS.darkGreenText,
-              fontSize: "1rem", // Suitable for phones
-              padding: "8px 14px",
+              backgroundColor: COLORS.darkPinkText,
+              color: COLORS.lightPink,
+              fontSize: isSmallMobile
+                ? "0.75rem"
+                : isMobile
+                ? "0.875rem"
+                : "1rem",
+              padding: getButtonPadding(),
+              minWidth: isSmallMobile ? "70px" : "90px",
             }}
           >
-            {t("patient_portal")}
+            {isSmallMobile ? t("portal") : t("patient_portal")}
           </Button>
         </Menu.Target>
         <Menu.Dropdown>
-          <Menu.Item onClick={() => router.push(`/${currentLang}/signUp`)}>
+          <Menu.Item
+            onClick={() => router.push(`/${currentLang}/signUp`)}
+            style={{ padding: getButtonPadding() }}
+          >
             <Group
-              gap={2}
+              gap={getGapSize()}
               style={{
                 fontFamily: "Oswald, sans-serif",
                 flexDirection: isRTL ? "row-reverse" : "row",
@@ -228,21 +300,24 @@ const MenuComponent = () => {
               }}
               wrap="nowrap"
             >
-              <IconUser size={12} color={COLORS.darkPinkText} />
-              <Text size="sm">{t("register_patient")}</Text>
+              <IconUser size={getIconSize()} color={COLORS.darkPinkText} />
+              <Text size={getTextSize()}>{t("register_patient")}</Text>
             </Group>
           </Menu.Item>
-          <Menu.Item onClick={() => router.push(`/${currentLang}/login`)}>
+          <Menu.Item
+            onClick={() => router.push(`/${currentLang}/login`)}
+            style={{ padding: getButtonPadding() }}
+          >
             <Group
-              gap={2}
+              gap={getGapSize()}
               style={{
                 fontFamily: "Oswald, sans-serif",
                 flexDirection: isRTL ? "row-reverse" : "row",
                 color: COLORS.darkPinkText,
               }}
             >
-              <IconLogin size={12} color={COLORS.darkPinkText} />
-              <Text size="sm">{t("patient_login")}</Text>
+              <IconLogin size={getIconSize()} color={COLORS.darkPinkText} />
+              <Text size={getTextSize()}>{t("patient_login")}</Text>
             </Group>
           </Menu.Item>
         </Menu.Dropdown>
@@ -250,7 +325,7 @@ const MenuComponent = () => {
     ) : (
       <Group
         wrap="nowrap"
-        gap={5}
+        gap={getGapSize()}
         style={{
           fontFamily: "Oswald, sans-serif",
           flexDirection: isRTL ? "row-reverse" : "row",
@@ -264,11 +339,17 @@ const MenuComponent = () => {
             flexDirection: isRTL ? "row-reverse" : "row",
             backgroundColor: COLORS.lightPink,
             color: COLORS.darkPinkText,
+            padding: getButtonPadding(),
+            fontSize: isSmallMobile
+              ? "0.75rem"
+              : isMobile
+              ? "0.875rem"
+              : "1rem",
           }}
         >
-          <Group gap={2}>
-            <IconUser size={12} color={COLORS.darkPinkText} />
-            <Text size="sm">{t("register")}</Text>
+          <Group gap={getGapSize()}>
+            <IconUser size={getIconSize()} color={COLORS.darkPinkText} />
+            <Text size={getTextSize()}>{t("register")}</Text>
           </Group>
         </Button>
         <Button
@@ -279,11 +360,17 @@ const MenuComponent = () => {
             flexDirection: isRTL ? "row-reverse" : "row",
             backgroundColor: COLORS.lightPink,
             color: COLORS.darkPinkText,
+            padding: getButtonPadding(),
+            fontSize: isSmallMobile
+              ? "0.75rem"
+              : isMobile
+              ? "0.875rem"
+              : "1rem",
           }}
         >
-          <Group gap={2} wrap="nowrap">
-            <IconLogin size={12} color={COLORS.darkPinkText} />
-            <Text size="sm">{t("login")}</Text>
+          <Group gap={getGapSize()} wrap="nowrap">
+            <IconLogin size={getIconSize()} color={COLORS.darkPinkText} />
+            <Text size={getTextSize()}>{t("login")}</Text>
           </Group>
         </Button>
       </Group>
@@ -293,17 +380,21 @@ const MenuComponent = () => {
     <Flex
       align="center"
       justify="space-between"
-      mt="xs"
+      mt={isSmallMobile ? "xs" : "sm"}
       direction={isRTL ? "row-reverse" : "row"}
+      style={{
+        padding: isSmallMobile ? "0 8px" : isMobile ? "0 12px" : "0 16px",
+        minHeight: isSmallMobile ? "48px" : isMobile ? "56px" : "64px",
+      }}
     >
       {/* Logo */}
-
       {isRTL ? (
         <Flex
           align="center"
-          gap="sm"
+          gap={isSmallMobile ? "xs" : "sm"}
           direction={isRTL ? "row-reverse" : "row"}
           justify="flex-start"
+          style={{ flexShrink: 0 }}
         >
           <LanguageSwitcher />
           {isAuthenticated ? renderAuthMenu() : renderAccountMenu()}
@@ -312,23 +403,34 @@ const MenuComponent = () => {
       ) : (
         <Flex
           align="center"
-          gap="md"
+          gap={isSmallMobile ? "xs" : "md"}
           justify={isRTL ? "flex-end" : "flex-start"}
           dir={isRTL ? "rtl" : "ltr"}
+          style={{ flexShrink: 0 }}
         >
           <Button
             onClick={() => router.push(`/${currentLang}/`)}
             color={COLORS.lightPink}
             variant="subtle"
+            style={{
+              padding: getButtonPadding(),
+              minWidth: isSmallMobile ? "60px" : "80px",
+            }}
           >
             <Text
               variant="subtle"
               fw={600}
               ff="Oswald, sans-serif"
               color={COLORS.darkPinkText}
-              fs={"1.2rem"}
+              style={{
+                fontSize: isSmallMobile
+                  ? "1rem"
+                  : isMobile
+                  ? "1.1rem"
+                  : "1.2rem",
+              }}
             >
-              {t("dr_omar_asad")}
+              {t("bloom")}
             </Text>
           </Button>
         </Flex>
@@ -340,23 +442,31 @@ const MenuComponent = () => {
           onClick={() => router.push(`/${currentLang}/`)}
           color={COLORS.lightPink}
           variant="subtle"
+          style={{
+            padding: getButtonPadding(),
+            minWidth: isSmallMobile ? "60px" : "80px",
+            flexShrink: 0,
+          }}
         >
           <Text
             variant="subtle"
             fw={600}
             ff="Oswald, sans-serif"
             color={COLORS.darkPinkText}
-            fs={"1.2rem"}
+            style={{
+              fontSize: isSmallMobile ? "1rem" : isMobile ? "1.1rem" : "1.2rem",
+            }}
           >
-            {t("dr_omar_asad")}
+            {t("bloom")}
           </Text>
         </Button>
       ) : (
         <Flex
           align="center"
-          gap="sm"
+          gap={isSmallMobile ? "xs" : "sm"}
           direction={isRTL ? "row-reverse" : "row"}
           justify="flex-end"
+          style={{ flexShrink: 0 }}
         >
           {renderMainMenu()}
           {isAuthenticated ? renderAuthMenu() : renderAccountMenu()}
